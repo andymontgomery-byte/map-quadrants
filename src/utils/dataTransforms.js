@@ -1,32 +1,49 @@
 /**
  * Deduplicate data based on growthmeasureyn or highest RIT score
+ * Processes per-term to handle mixed historical/current data
  * @param {Array} rows - Raw CSV rows
  * @returns {Array} Deduplicated rows
  */
 export function deduplicateData(rows) {
-  // Check if this data has growthmeasureyn populated
-  const hasGrowthMeasure = rows.some(r => r.growthmeasureyn === 'true');
-
-  if (hasGrowthMeasure) {
-    // Use NWEA's official growth measure designation
-    return rows.filter(r => r.growthmeasureyn === 'true');
-  }
-
-  // Fallback for terms without growthmeasureyn - keep highest RIT per student+subject
-  const groups = {};
+  // Group by term first
+  const byTerm = {};
   for (const row of rows) {
-    const key = `${row.studentid}|${row.subject}`;
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(row);
+    const term = row.termname || 'unknown';
+    if (!byTerm[term]) byTerm[term] = [];
+    byTerm[term].push(row);
   }
 
-  return Object.values(groups).map(group =>
-    group.reduce((best, curr) => {
-      const currScore = parseFloat(curr.testritscore) || 0;
-      const bestScore = parseFloat(best.testritscore) || 0;
-      return currScore > bestScore ? curr : best;
-    })
-  );
+  const result = [];
+
+  // Process each term separately
+  for (const [term, termRows] of Object.entries(byTerm)) {
+    // Check if this term has growthmeasureyn populated
+    const hasGrowthMeasure = termRows.some(r => r.growthmeasureyn === 'true');
+
+    if (hasGrowthMeasure) {
+      // Use NWEA's official growth measure designation for this term
+      result.push(...termRows.filter(r => r.growthmeasureyn === 'true'));
+    } else {
+      // Fallback: keep highest RIT per student+subject for this term
+      const groups = {};
+      for (const row of termRows) {
+        const key = `${row.studentid}|${row.subject}`;
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(row);
+      }
+
+      for (const group of Object.values(groups)) {
+        const best = group.reduce((best, curr) => {
+          const currScore = parseFloat(curr.testritscore) || 0;
+          const bestScore = parseFloat(best.testritscore) || 0;
+          return currScore > bestScore ? curr : best;
+        });
+        result.push(best);
+      }
+    }
+  }
+
+  return result;
 }
 
 /**
