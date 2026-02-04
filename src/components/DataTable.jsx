@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from 'react';
-import { getQuadrant } from '../utils/quadrantLogic';
+import { getQuadrant, QUADRANT_COLORS } from '../utils/quadrantLogic';
 import { groupBySubject } from '../utils/dataTransforms';
 
 function DataTable({ data, showQuadrantColors }) {
@@ -7,9 +7,7 @@ function DataTable({ data, showQuadrantColors }) {
   const [collapsedGroups, setCollapsedGroups] = useState(new Set());
 
   // Group data by course/subject
-  const groupedData = useMemo(() => {
-    return groupBySubject(data);
-  }, [data]);
+  const groupedData = useMemo(() => groupBySubject(data), [data]);
 
   // Sort data within each group
   const sortedGroupedData = useMemo(() => {
@@ -19,29 +17,18 @@ function DataTable({ data, showQuadrantColors }) {
         let aVal = a[sortConfig.key];
         let bVal = b[sortConfig.key];
 
-        // Handle numeric values
         if (typeof aVal === 'number' && typeof bVal === 'number') {
           return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
         }
 
-        // Handle null/undefined
-        if (aVal == null) aVal = '';
-        if (bVal == null) bVal = '';
-
-        // String comparison
-        aVal = String(aVal).toLowerCase();
-        bVal = String(bVal).toLowerCase();
-
-        if (sortConfig.direction === 'asc') {
-          return aVal.localeCompare(bVal);
-        }
-        return bVal.localeCompare(aVal);
+        aVal = String(aVal ?? '').toLowerCase();
+        bVal = String(bVal ?? '').toLowerCase();
+        return sortConfig.direction === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
       });
     }
     return sorted;
   }, [groupedData, sortConfig]);
 
-  // Handle sort
   const handleSort = useCallback((key) => {
     setSortConfig(prev => ({
       key,
@@ -49,135 +36,144 @@ function DataTable({ data, showQuadrantColors }) {
     }));
   }, []);
 
-  // Toggle group collapse
   const toggleGroup = useCallback((group) => {
     setCollapsedGroups(prev => {
       const newSet = new Set(prev);
-      if (newSet.has(group)) {
-        newSet.delete(group);
-      } else {
-        newSet.add(group);
-      }
+      if (newSet.has(group)) newSet.delete(group);
+      else newSet.add(group);
       return newSet;
     });
   }, []);
 
+  // Get quadrant color for a student
+  const getQuadrantColorForStudent = (student) => {
+    if (!showQuadrantColors) return '#ffffff';
+    const quadrant = getQuadrant(student.winterPercentile, student.conditionalGrowthPercentile);
+    return QUADRANT_COLORS[quadrant];
+  };
+
   // Get row class based on quadrant
   const getRowClass = (student) => {
     if (!showQuadrantColors) return '';
-
     const quadrant = getQuadrant(student.winterPercentile, student.conditionalGrowthPercentile);
-    const classMap = {
-      highHigh: 'row-high-high',
-      lowHigh: 'row-low-high',
-      lowLow: 'row-low-low',
-      highLow: 'row-high-low',
-    };
-    return classMap[quadrant] || '';
+    return `row-${quadrant.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
   };
 
-  // Format Met Projected Growth value
+  // Format RIT range as "low-mid-high" with mid bolded
+  const formatRITRange = (rit, se) => {
+    if (rit == null) return '—';
+    const low = Math.round(rit - 2 * (se || 0));
+    const high = Math.round(rit + 2 * (se || 0));
+    return (
+      <span>
+        {low}-<strong>{Math.round(rit)}</strong>-{high}
+      </span>
+    );
+  };
+
+  // Format percentile range
+  const formatPercentileRange = (percentile, se) => {
+    if (percentile == null) return '—';
+    // Estimate range based on SE (rough approximation)
+    const seEstimate = se || 3;
+    const low = Math.max(1, Math.round(percentile - seEstimate * 5));
+    const high = Math.min(99, Math.round(percentile + seEstimate * 5));
+    return (
+      <span>
+        {low}-<strong>{Math.round(percentile)}</strong>-{high}
+      </span>
+    );
+  };
+
+  // Format date as M/D/YY
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '—';
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr;
+    return `${parseInt(parts[1])}/${parseInt(parts[2])}/${parts[0].slice(2)}`;
+  };
+
+  // Format Met Projected Growth
   const formatMetGrowth = (value) => {
     if (!value) return '—';
     const isYes = value.toLowerCase().startsWith('yes');
-    return (
-      <span className={isYes ? 'met-yes' : 'met-no'}>
-        {value}
-      </span>
-    );
+    return <span className={isYes ? 'met-yes' : 'met-no'}>{isYes ? 'Yes' : 'No'}</span>;
   };
 
-  // Sort icon
   const SortIcon = ({ columnKey }) => {
     const isActive = sortConfig.key === columnKey;
     const icon = isActive && sortConfig.direction === 'desc' ? '▼' : '▲';
-    return (
-      <span className={`sort-icon ${isActive ? 'active' : ''}`}>
-        {icon}
-      </span>
-    );
+    return <span className={`sort-icon ${isActive ? 'active' : ''}`}>{icon}</span>;
   };
 
   return (
     <div className="data-table-container">
       <table className="data-table">
         <thead>
-          {/* Tier 1 - Main Categories */}
+          {/* Tier 1 */}
           <tr className="header-tier-1">
-            <th colSpan={4}>Student Information</th>
-            <th colSpan={4}>Achievement Status - Fall 2025</th>
-            <th colSpan={5}>Achievement Status - Winter 2026</th>
-            <th colSpan={4}>Growth - Student</th>
-            <th colSpan={4}>Growth - Comparative</th>
+            <th colSpan={4}></th>
+            <th colSpan={4}>Achievement Status</th>
+            <th colSpan={8}>Growth</th>
           </tr>
 
-          {/* Tier 2 - Sub Categories */}
+          {/* Tier 2 */}
           <tr className="header-tier-2">
             <th colSpan={4}></th>
-            <th colSpan={4}>RIT Score</th>
-            <th colSpan={3}>RIT Score</th>
-            <th colSpan={2}>Percentile</th>
-            <th colSpan={4}></th>
-            <th colSpan={4}></th>
+            <th colSpan={2}>Winter 2025</th>
+            <th colSpan={2}>Winter 2026</th>
+            <th colSpan={5}>Student</th>
+            <th colSpan={3}>Comparative</th>
           </tr>
 
           {/* Tier 3 - Column Headers */}
           <tr className="header-tier-3">
+            <th>Quadrant</th>
             <th onClick={() => handleSort('studentName')}>
-              Student Name <SortIcon columnKey="studentName" />
-            </th>
-            <th onClick={() => handleSort('studentid')}>
-              Student ID <SortIcon columnKey="studentid" />
+              Student Name<br />Student ID <SortIcon columnKey="studentName" />
             </th>
             <th onClick={() => handleSort('grade')}>
-              Grade <SortIcon columnKey="grade" />
+              WI 2026<br />Grade <SortIcon columnKey="grade" />
             </th>
             <th onClick={() => handleSort('teststartdate')}>
-              Test Date <SortIcon columnKey="teststartdate" />
+              WI 2026<br />Date <SortIcon columnKey="teststartdate" />
             </th>
-
-            {/* Fall Achievement */}
-            <th onClick={() => handleSort('fallRIT')} className="numeric">
-              RIT <SortIcon columnKey="fallRIT" />
+            <th className="numeric">
+              RIT Score<br />Range
             </th>
-            <th className="numeric">Range Low</th>
-            <th className="numeric">Range High</th>
-            <th className="numeric">Percentile</th>
-
-            {/* Winter Achievement */}
-            <th onClick={() => handleSort('winterRIT')} className="numeric">
-              RIT <SortIcon columnKey="winterRIT" />
+            <th className="numeric">
+              Achievement<br />Percentile Range
             </th>
-            <th className="numeric">Range Low</th>
-            <th className="numeric">Range High</th>
-            <th onClick={() => handleSort('winterPercentile')} className="numeric">
-              Percentile <SortIcon columnKey="winterPercentile" />
+            <th className="numeric">
+              RIT Score<br />Range
             </th>
-            <th>Quintile</th>
-
-            {/* Growth - Student */}
+            <th className="numeric">
+              Achievement<br />Percentile Range
+            </th>
             <th onClick={() => handleSort('projectedRIT')} className="numeric">
-              Proj. RIT <SortIcon columnKey="projectedRIT" />
+              Projected<br />RIT Score <SortIcon columnKey="projectedRIT" />
             </th>
             <th onClick={() => handleSort('projectedGrowth')} className="numeric">
-              Proj. Growth <SortIcon columnKey="projectedGrowth" />
+              Projected<br />Growth <SortIcon columnKey="projectedGrowth" />
             </th>
             <th onClick={() => handleSort('observedGrowth')} className="numeric">
-              Obs. Growth <SortIcon columnKey="observedGrowth" />
+              Observed<br />Growth <SortIcon columnKey="observedGrowth" />
             </th>
-            <th className="numeric">Growth SE</th>
-
-            {/* Growth - Comparative */}
-            <th onClick={() => handleSort('metProjectedGrowth')}>
-              Met Proj. <SortIcon columnKey="metProjectedGrowth" />
+            <th className="numeric">
+              Observed<br />Growth SE
             </th>
             <th onClick={() => handleSort('conditionalGrowthIndex')} className="numeric">
-              CGI <SortIcon columnKey="conditionalGrowthIndex" />
+              Growth<br />Index <SortIcon columnKey="conditionalGrowthIndex" />
+            </th>
+            <th onClick={() => handleSort('metProjectedGrowth')}>
+              Met<br />Projected<br />Growth <SortIcon columnKey="metProjectedGrowth" />
+            </th>
+            <th className="numeric">
+              Conditional<br />Growth<br />Index
             </th>
             <th onClick={() => handleSort('conditionalGrowthPercentile')} className="numeric">
-              CGP <SortIcon columnKey="conditionalGrowthPercentile" />
+              Conditional<br />Growth<br />Percentile <SortIcon columnKey="conditionalGrowthPercentile" />
             </th>
-            <th>Quintile</th>
           </tr>
         </thead>
 
@@ -190,11 +186,11 @@ function DataTable({ data, showQuadrantColors }) {
                 className="subject-group-header"
                 onClick={() => toggleGroup(group)}
               >
-                <td colSpan={21}>
+                <td colSpan={16}>
                   <span className="expand-icon">
-                    {collapsedGroups.has(group) ? '+' : '−'}
+                    {collapsedGroups.has(group) ? '▸' : '▾'}
                   </span>
-                  {group} ({rows.length} students)
+                  <strong>{group}:</strong> {rows.length} students
                 </td>
               </tr>
 
@@ -204,35 +200,45 @@ function DataTable({ data, showQuadrantColors }) {
                   key={`${student.studentid}-${student.subject}-${idx}`}
                   className={getRowClass(student)}
                 >
-                  <td>{student.studentName}</td>
-                  <td>{student.studentid}</td>
+                  {/* Quadrant color box */}
+                  <td>
+                    <div
+                      className="quadrant-box"
+                      style={{ backgroundColor: getQuadrantColorForStudent(student) }}
+                    />
+                  </td>
+
+                  {/* Student Name / ID */}
+                  <td>
+                    <div>{student.studentName}</div>
+                    <div className="student-id">{student.studentid}</div>
+                  </td>
+
+                  {/* Grade */}
                   <td>{student.grade}</td>
-                  <td>{student.teststartdate}</td>
 
-                  {/* Fall Achievement */}
-                  <td className="numeric">{student.fallRIT ?? '—'}</td>
-                  <td className="numeric">—</td>
-                  <td className="numeric">—</td>
-                  <td className="numeric">—</td>
+                  {/* Test Date */}
+                  <td>{formatDate(student.teststartdate)}</td>
 
-                  {/* Winter Achievement */}
-                  <td className="numeric">{student.winterRIT ?? '—'}</td>
-                  <td className="numeric">{student.winterRITLow?.toFixed(0) ?? '—'}</td>
-                  <td className="numeric">{student.winterRITHigh?.toFixed(0) ?? '—'}</td>
-                  <td className="numeric">{student.winterPercentile ?? '—'}</td>
-                  <td>{student.achievementquintile || '—'}</td>
+                  {/* Winter 2025 (Fall/previous) Achievement */}
+                  <td className="numeric">{formatRITRange(student.fallRIT, student.teststandarderror)}</td>
+                  <td className="numeric">{formatPercentileRange(null, null)}</td>
+
+                  {/* Winter 2026 Achievement */}
+                  <td className="numeric">{formatRITRange(student.winterRIT, parseFloat(student.teststandarderror))}</td>
+                  <td className="numeric">{formatPercentileRange(student.winterPercentile, parseFloat(student.teststandarderror))}</td>
 
                   {/* Growth - Student */}
                   <td className="numeric">{student.projectedRIT ?? '—'}</td>
-                  <td className="numeric">{student.projectedGrowth?.toFixed(1) ?? '—'}</td>
-                  <td className="numeric">{student.observedGrowth?.toFixed(1) ?? '—'}</td>
-                  <td className="numeric">{student.growthSE?.toFixed(2) ?? '—'}</td>
+                  <td className="numeric">{student.projectedGrowth?.toFixed(0) ?? '—'}</td>
+                  <td className="numeric">{student.observedGrowth?.toFixed(0) ?? '—'}</td>
+                  <td className="numeric">{student.growthSE?.toFixed(1) ?? '—'}</td>
+                  <td className="numeric">{student.conditionalGrowthIndex != null ? Math.round(student.conditionalGrowthIndex * 100) / 100 : '—'}</td>
 
                   {/* Growth - Comparative */}
                   <td>{formatMetGrowth(student.metProjectedGrowth)}</td>
                   <td className="numeric">{student.conditionalGrowthIndex?.toFixed(2) ?? '—'}</td>
                   <td className="numeric">{student.conditionalGrowthPercentile ?? '—'}</td>
-                  <td>{student.growthQuintile || '—'}</td>
                 </tr>
               ))}
             </>

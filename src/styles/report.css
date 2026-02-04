@@ -488,6 +488,19 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Quadrant color box in table */
+.quadrant-box {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+}
+
+/* Student ID subtext */
+.student-id {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
 /* Met growth indicators */
 .met-yes {
   color: #2e7d32;
