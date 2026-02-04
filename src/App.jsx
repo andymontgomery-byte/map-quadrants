@@ -35,6 +35,7 @@ function App() {
     schoolname: '',
     districtname: '',
     grades: [],
+    growthPeriod: '',
   });
 
   // Report-level filters (for interactive filtering in report view)
@@ -99,6 +100,7 @@ function App() {
       subjects: schoolMeta?.subjects || [],
       genders: schoolMeta?.genders || [],
       ethnicities: schoolMeta?.ethnicities || [],
+      growthPeriods: schoolMeta?.growthPeriods || [],
       studentCount: schoolMeta?.count || 0,
     };
   }, [metadata, selection]);
@@ -122,8 +124,9 @@ function App() {
         filteredData = rawData.filter(r => selection.grades.includes(r.grade));
       }
 
-      // Process data with calculations
-      const processed = processData(filteredData, 'falltowinter');
+      // Process data with calculations using selected growth period
+      const growthPeriod = selection.growthPeriod || 'falltowinter';
+      const processed = processData(filteredData, growthPeriod);
       setReportData(processed);
 
       // Initialize report filters with all available values

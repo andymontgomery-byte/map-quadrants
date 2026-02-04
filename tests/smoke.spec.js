@@ -4,6 +4,13 @@ import fs from 'fs';
 
 const SCREENSHOTS_DIR = path.join(process.cwd(), 'test-screenshots');
 
+// Expected growth period options by term type
+const EXPECTED_GROWTH_PERIODS = {
+  Winter: ['Fall to Winter', 'Winter to Winter'],
+  Spring: ['Fall to Spring', 'Winter to Spring', 'Spring to Spring'],
+  Fall: ['Fall to Fall'],
+};
+
 // Expected table column structure (must match exactly)
 // Note: <br> tags become empty string in textContent, so multi-line headers are concatenated
 const EXPECTED_COLUMNS = {
@@ -58,6 +65,32 @@ test.describe('MAP Quadrant Report Smoke Test', () => {
     await page.locator('#term-select').selectOption('Winter 2025-2026');
     await page.locator('#district-select').selectOption('Alpha');
     await page.locator('#school-select').selectOption('Alpha Austin');
+
+    // Step 3b: Verify growth period options are correct for Winter term
+    const growthPeriodSelect = page.locator('#growth-period-select');
+    await expect(growthPeriodSelect).toBeEnabled();
+
+    // Get available growth period options (excluding placeholder)
+    const allOptions = await growthPeriodSelect.locator('option').allTextContents();
+    const growthOptions = allOptions.filter(opt => opt !== 'Select a growth period...');
+    console.log('Available growth periods:', growthOptions);
+
+    // Determine term type from selected term
+    const termType = 'Winter'; // Winter 2025-2026
+    const expectedOptions = EXPECTED_GROWTH_PERIODS[termType];
+
+    // Verify at least one expected option is available
+    const hasValidOption = growthOptions.some(opt => expectedOptions.includes(opt));
+    expect(hasValidOption, `${termType} term should have one of: ${expectedOptions.join(', ')}`).toBe(true);
+
+    // Verify no invalid options are present
+    for (const opt of growthOptions) {
+      const isValid = expectedOptions.includes(opt);
+      expect(isValid, `Unexpected growth period "${opt}" for ${termType} term`).toBe(true);
+    }
+
+    // Select Fall to Winter
+    await growthPeriodSelect.selectOption('falltowinter');
 
     // Step 4: Generate report
     await page.locator('.generate-btn').click();

@@ -103,13 +103,25 @@ async function main() {
         const genders = [...new Set(dedupedRows.map(r => r.studentgender).filter(Boolean))].sort();
         const ethnicities = [...new Set(dedupedRows.map(r => r.studentethnicgroup).filter(Boolean))].sort();
 
+        // Detect available growth periods based on which columns have data
+        const growthPeriods = [];
+        const hasData = (col) => dedupedRows.some(r => r[col] && r[col] !== '');
+
+        if (hasData('falltowinterconditionalgrowthpercentile')) growthPeriods.push('falltowinter');
+        if (hasData('falltospringconditionalgrowthpercentile')) growthPeriods.push('falltospring');
+        if (hasData('wintertospringconditionalgrowthpercentile')) growthPeriods.push('wintertospring');
+        if (hasData('falltofallconditionalgrowthpercentile')) growthPeriods.push('falltofall');
+        if (hasData('wintertowinterconditionalgrowthpercentile')) growthPeriods.push('wintertowinter');
+        if (hasData('springtospringconditionalgrowthpercentile')) growthPeriods.push('springtospring');
+
         // Store metadata
         metadata.terms[term].districts[district].schools[school] = {
           count: dedupedRows.length,
           grades,
           subjects,
           genders,
-          ethnicities
+          ethnicities,
+          growthPeriods
         };
 
         // Write data slice to file

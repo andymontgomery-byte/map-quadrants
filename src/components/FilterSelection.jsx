@@ -18,11 +18,14 @@ function FilterSelection({
         updated.districtname = '';
         updated.schoolname = '';
         updated.grades = [];
+        updated.growthPeriod = '';
       } else if (field === 'districtname') {
         updated.schoolname = '';
         updated.grades = [];
+        updated.growthPeriod = '';
       } else if (field === 'schoolname') {
         updated.grades = [];
+        updated.growthPeriod = '';
       }
 
       return updated;
@@ -33,7 +36,18 @@ function FilterSelection({
     selection.termname &&
     selection.districtname &&
     selection.schoolname &&
+    selection.growthPeriod &&
     !isLoading;
+
+  // Growth period display names
+  const growthPeriodLabels = {
+    falltowinter: 'Fall to Winter',
+    falltospring: 'Fall to Spring',
+    wintertospring: 'Winter to Spring',
+    falltofall: 'Fall to Fall',
+    wintertowinter: 'Winter to Winter',
+    springtospring: 'Spring to Spring',
+  };
 
   if (isLoading && !hasData) {
     return (
@@ -97,6 +111,21 @@ function FilterSelection({
       </div>
 
       <div className="filter-row">
+        <label htmlFor="growth-period-select">Growth Comparison Period</label>
+        <select
+          id="growth-period-select"
+          value={selection.growthPeriod}
+          onChange={(e) => handleSelectionChange('growthPeriod', e.target.value)}
+          disabled={!hasData || !selection.schoolname || isLoading}
+        >
+          <option value="">Select a growth period...</option>
+          {(availableOptions.growthPeriods || []).map(period => (
+            <option key={period} value={period}>{growthPeriodLabels[period] || period}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="filter-row">
         <label htmlFor="grade-select">Grade (optional)</label>
         <select
           id="grade-select"
@@ -111,7 +140,7 @@ function FilterSelection({
         </select>
       </div>
 
-      {selection.schoolname && availableOptions.studentCount > 0 && (
+      {selection.schoolname && selection.growthPeriod && availableOptions.studentCount > 0 && (
         <div className="selection-summary">
           <strong>{availableOptions.studentCount}</strong> students available
         </div>
