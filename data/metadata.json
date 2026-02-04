@@ -1,0 +1,3723 @@
+{
+  "terms": {
+    "Winter 2025-2026": {
+      "districts": {
+        "Virtual 2 Hour Learning": {
+          "schools": {
+            "Virtual 2 Hour Learning": {
+              "count": 770,
+              "grades": [
+                "1",
+                "10",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "DeepWater Prep": {
+              "count": 9,
+              "grades": [
+                "10",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Dynamic Prep": {
+              "count": 29,
+              "grades": [
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Strata": {
+              "count": 12,
+              "grades": [
+                "5",
+                "6",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "TSA Gymnastics - San Antonio": {
+              "count": 10,
+              "grades": [
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "TSA Football - Carrollton": {
+              "count": 8,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "8"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Modern Samurai Academy": {
+              "count": 24,
+              "grades": [
+                "2",
+                "5",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "The Bennett School": {
+              "count": 80,
+              "grades": [
+                "10",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "AIE Elite Prep": {
+              "count": 17,
+              "grades": [
+                "10",
+                "6",
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "TSA Baseball - Dallas": {
+              "count": 6,
+              "grades": [
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy Online": {
+              "count": 12,
+              "grades": [
+                "4",
+                "5",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "TSA Basketball - Houston": {
+              "count": 11,
+              "grades": [
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "All American Prep": {
+              "count": 16,
+              "grades": [
+                "5",
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "TSA Baseball - Pearland": {
+              "count": 11,
+              "grades": [
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Science"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 812,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 127,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "NextGen Academy": {
+              "count": 35,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "GT School": {
+              "count": 72,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "7",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy": {
+              "count": 107,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Miami": {
+              "count": 234,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Scottsdale": {
+              "count": 102,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha West Palm Beach": {
+              "count": 16,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha New York City": {
+              "count": 79,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Fort Worth": {
+              "count": 25,
+              "grades": [
+                "1",
+                "2",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Plano": {
+              "count": 7,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Lake Forest": {
+              "count": 32,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Chantilly": {
+              "count": 3,
+              "grades": [
+                "2",
+                "6"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha San Francisco": {
+              "count": 57,
+              "grades": [
+                "1",
+                "11",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Montessorium Cedar Park": {
+              "count": 42,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Santa Barbara": {
+              "count": 43,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Waypoint Academy": {
+              "count": 3,
+              "grades": [
+                "2"
+              ],
+              "subjects": [
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Nova Academy Austin": {
+          "schools": {
+            "Nova Academy Austin": {
+              "count": 35,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Nova Academy Bastrop": {
+              "count": 46,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Unbound Academy": {
+          "schools": {
+            "Unbound Academy": {
+              "count": 578,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Studient": {
+          "schools": {
+            "LFG Academy": {
+              "count": 32,
+              "grades": [
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Immaculate Academy": {
+              "count": 10,
+              "grades": [
+                "2",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Oregon Trail School District 46": {
+              "count": 230,
+              "grades": [
+                "3",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Multi-ethnic",
+                "Not Specified or Other"
+              ]
+            },
+            "SPIRE Academy": {
+              "count": 350,
+              "grades": [
+                "10",
+                "11",
+                "12",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Kairos Learning Solutions": {
+              "count": 43,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "ScienceSIS": {
+              "count": 33,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Vita High School": {
+              "count": 55,
+              "grades": [
+                "10",
+                "12",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Living Water Elementary": {
+              "count": 55,
+              "grades": [
+                "3",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "One Hope Academy": {
+              "count": 10,
+              "grades": [
+                "3",
+                "K"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2025-2026": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 871,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other",
+                "White"
+              ]
+            },
+            "Alpha San Francisco": {
+              "count": 34,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Santa Barbara": {
+              "count": 32,
+              "grades": [
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha New York City": {
+              "count": 63,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Lake Forest": {
+              "count": 4,
+              "grades": [
+                "2"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Miami": {
+              "count": 214,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha West Palm Beach": {
+              "count": 13,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "NextGen Academy": {
+              "count": 24,
+              "grades": [
+                "3",
+                "5",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "GT School": {
+              "count": 85,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Montessorium Cedar Park": {
+              "count": 43,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 138,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy": {
+              "count": 117,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Scottsdale": {
+              "count": 76,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Fort Worth": {
+              "count": 30,
+              "grades": [
+                "2",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Plano": {
+              "count": 8,
+              "grades": [
+                "1",
+                "3",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Unbound Academy": {
+          "schools": {
+            "Unbound Academy": {
+              "count": 498,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "American Indian or Alaska Native",
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Studient": {
+          "schools": {
+            "Oregon Trail School District 46": {
+              "count": 2744,
+              "grades": [
+                "10",
+                "11",
+                "12",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Vita High School": {
+              "count": 54,
+              "grades": [
+                "10",
+                "12",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "ScienceSIS": {
+              "count": 51,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Immaculate Academy": {
+              "count": 29,
+              "grades": [
+                "2",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "One Hope Academy": {
+              "count": 9,
+              "grades": [
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "LFG Academy": {
+              "count": 32,
+              "grades": [
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Kairos Learning Solutions": {
+              "count": 44,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Living Water Elementary": {
+              "count": 52,
+              "grades": [
+                "3",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Nova Academy Austin": {
+          "schools": {
+            "Nova Academy Austin": {
+              "count": 51,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Nova Academy Bastrop": {
+              "count": 45,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Novatio School": {
+          "schools": {
+            "Novatio": {
+              "count": 163,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Virtual 2 Hour Learning": {
+          "schools": {
+            "Virtual 2 Hour Learning": {
+              "count": 500,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "All American Prep": {
+              "count": 12,
+              "grades": [
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "The Saint James": {
+              "count": 23,
+              "grades": [
+                "12"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Modern Samurai Academy": {
+              "count": 25,
+              "grades": [
+                "2",
+                "4",
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "The Bennett School": {
+              "count": 30,
+              "grades": [
+                "10",
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "DeepWater Prep": {
+              "count": 11,
+              "grades": [
+                "10",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "AIE Elite Prep": {
+              "count": 27,
+              "grades": [
+                "10",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2024-2025": {
+      "districts": {
+        "Virtual 2 Hour Learning": {
+          "schools": {
+            "Virtual 2 Hour Learning": {
+              "count": 117,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Irvington High School": {
+              "count": 58,
+              "grades": [
+                "10",
+                "12",
+                "9"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "SAT Prep High School": {
+              "count": 30,
+              "grades": [
+                "10",
+                "11",
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Alpha": {
+          "schools": {
+            "Homeschool": {
+              "count": 18,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Austin": {
+              "count": 458,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "NextGen Academy": {
+              "count": 23,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "GT School": {
+              "count": 43,
+              "grades": [
+                "1",
+                "2",
+                "4",
+                "6",
+                "7",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy": {
+              "count": 74,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Miami": {
+              "count": 39,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 108,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Texas Preparatory School": {
+          "schools": {
+            "Texas Prep School": {
+              "count": 137,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2024-2025": {
+      "districts": {
+        "Virtual 2 Hour Learning": {
+          "schools": {
+            "Virtual 2 Hour Learning": {
+              "count": 51,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "SAT Prep High School": {
+              "count": 6,
+              "grades": [
+                "10",
+                "11"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Irvington High School": {
+              "count": 1,
+              "grades": [
+                "9"
+              ],
+              "subjects": [
+                "Math"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 445,
+              "grades": [
+                "1",
+                "10",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "NextGen Academy": {
+              "count": 16,
+              "grades": [
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy": {
+              "count": 54,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "GT School": {
+              "count": 35,
+              "grades": [
+                "1",
+                "2",
+                "4",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Miami": {
+              "count": 36,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 104,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Homeschool": {
+              "count": 17,
+              "grades": [
+                "1",
+                "2",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Texas Preparatory School": {
+          "schools": {
+            "Texas Prep School": {
+              "count": 137,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2024-2025": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "NextGen Academy": {
+              "count": 15,
+              "grades": [
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Austin": {
+              "count": 423,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Homeschool": {
+              "count": 37,
+              "grades": [
+                "1",
+                "4",
+                "5",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Denver": {
+              "count": 4,
+              "grades": [
+                "4"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 113,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "GT School": {
+              "count": 22,
+              "grades": [
+                "1",
+                "4",
+                "6",
+                "7"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Texas Sports Academy": {
+              "count": 28,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Miami": {
+              "count": 26,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "6",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2023-2024": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 432,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 97,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2023-2024": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 459,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 74,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "2 Hour Learning": {
+              "count": 16,
+              "grades": [
+                "3",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2023-2024": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "2 Hour Learning": {
+              "count": 12,
+              "grades": [
+                "10",
+                "3",
+                "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Austin": {
+              "count": 479,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 80,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2022-2023": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 602,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 90,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2022-2023": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 644,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 79,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2022-2023": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 756,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 93,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2021-2022": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 681,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Dallas": {
+              "count": 52,
+              "grades": [
+                "1",
+                "4",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Brownsville": {
+              "count": 13,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "K"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Prisma Learning Inc.": {
+          "schools": {
+            "Prisma": {
+              "count": 2,
+              "grades": [
+                "4"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2021-2022": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 759,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Dallas": {
+              "count": 34,
+              "grades": [
+                "4",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Prisma Learning Inc.": {
+          "schools": {
+            "Prisma": {
+              "count": 2,
+              "grades": [
+                "4"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2021-2022": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha Austin": {
+              "count": 817,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "12",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            },
+            "Alpha Dallas": {
+              "count": 36,
+              "grades": [
+                "4",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        },
+        "Prisma Learning Inc.": {
+          "schools": {
+            "Prisma": {
+              "count": 2,
+              "grades": [
+                "4"
+              ],
+              "subjects": [
+                "Math",
+                "Reading"
+              ],
+              "genders": [
+                "F"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2020-2021": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 542,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2020-2021": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 541,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2020-2021": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 560,
+              "grades": [
+                "1",
+                "10",
+                "11",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2019-2020": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 380,
+              "grades": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2019-2020": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 404,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2019-2020": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 367,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2018-2019": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 318,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2018-2019": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 260,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2018-2019": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 235,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Spring 2017-2018": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 118,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Winter 2017-2018": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 112,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Fall 2017-2018": {
+      "districts": {
+        "Alpha": {
+          "schools": {
+            "Alpha": {
+              "count": 95,
+              "grades": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language Arts",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
