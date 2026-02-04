@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:smoke": "playwright test smoke",
+    "test:ui": "playwright test --ui",
+    "deploy": "npm run build && cp public/data.csv dist/ && gh-pages -d dist"
   },
   "dependencies": {
     "papaparse": "^5.4.1",
@@ -16,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.58.1",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",

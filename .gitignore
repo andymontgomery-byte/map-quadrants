@@ -26,3 +26,8 @@ npm-debug.log*
 
 # Data file (too large for git, deploy separately)
 public/data.csv
+
+# Test artifacts
+test-results/
+test-screenshots/
+playwright-report/
