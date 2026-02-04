@@ -2,6 +2,8 @@
 
 A pixel-perfect clone of the NWEA MAP Growth quadrant report.
 
+**Live:** https://andymontgomery-byte.github.io/map-quadrants/
+
 ## Quick Start
 
 ```bash
@@ -81,6 +83,17 @@ See `docs/` for detailed specifications:
 | `npm run build:data` | Process CSV into metadata + slices |
 | `npm run test:smoke` | Run Playwright smoke test |
 | `npm run deploy` | Build and deploy to GitHub Pages |
+
+## Development Workflow
+
+**Before declaring any change ready:**
+
+1. Run smoke tests: `npm run test:smoke`
+2. Verify tests pass with screenshots
+3. Deploy: `npm run deploy`
+4. Verify live site works
+
+Never skip the smoke test - it validates the full user flow with visual screenshots.
 
 ## Tech Stack
 

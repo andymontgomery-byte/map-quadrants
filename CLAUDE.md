@@ -1,5 +1,17 @@
 # Project Guidelines
 
+## Live Site
+https://andymontgomery-byte.github.io/map-quadrants/
+
+## Verification Requirement
+**BEFORE telling the user a change is ready:**
+1. Run `npm run test:smoke` - must pass
+2. Review screenshots in `test-screenshots/` if visual changes
+3. Deploy with `npm run deploy`
+4. Verify the live site works
+
+Never skip smoke tests. They validate the full user flow.
+
 ## Key Principles
 - **Plan Mode Default**: Enter plan mode for 3+ step tasks or architectural decisions
 - **Subagents**: Use liberally for research, exploration, parallel analysis
