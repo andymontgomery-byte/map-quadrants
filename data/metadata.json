@@ -32,6 +32,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "DeepWater Prep": {
@@ -51,6 +55,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Dynamic Prep": {
@@ -71,7 +78,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Strata": {
               "count": 12,
@@ -91,7 +99,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "TSA Gymnastics - San Antonio": {
               "count": 10,
@@ -108,7 +117,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "TSA Football - Carrollton": {
               "count": 8,
@@ -128,7 +138,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Modern Samurai Academy": {
               "count": 24,
@@ -149,6 +160,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "The Bennett School": {
@@ -171,6 +185,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "AIE Elite Prep": {
@@ -193,6 +210,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "TSA Baseball - Dallas": {
@@ -210,7 +230,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Texas Sports Academy Online": {
               "count": 12,
@@ -230,7 +251,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "TSA Basketball - Houston": {
               "count": 11,
@@ -251,7 +273,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "All American Prep": {
               "count": 16,
@@ -271,6 +294,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "TSA Baseball - Pearland": {
@@ -291,7 +317,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -328,6 +355,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Brownsville": {
@@ -356,6 +387,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "NextGen Academy": {
@@ -379,6 +414,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "GT School": {
@@ -406,6 +445,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Texas Sports Academy": {
@@ -432,6 +475,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Miami": {
@@ -462,6 +509,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Scottsdale": {
@@ -489,6 +540,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha West Palm Beach": {
@@ -512,6 +566,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha New York City": {
@@ -539,6 +596,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Fort Worth": {
@@ -564,6 +624,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Plano": {
@@ -585,6 +648,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Lake Forest": {
@@ -610,6 +676,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Chantilly": {
@@ -628,7 +697,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha San Francisco": {
               "count": 57,
@@ -656,6 +726,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Montessorium Cedar Park": {
@@ -680,6 +753,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Santa Barbara": {
@@ -703,6 +779,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Waypoint Academy": {
@@ -720,6 +799,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -748,6 +831,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Nova Academy Bastrop": {
@@ -772,6 +859,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -799,6 +889,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -825,6 +918,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Immaculate Academy": {
@@ -843,6 +939,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Oregon Trail School District 46": {
@@ -867,6 +966,9 @@
               "ethnicities": [
                 "Multi-ethnic",
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "SPIRE Academy": {
@@ -888,7 +990,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Kairos Learning Solutions": {
               "count": 43,
@@ -911,6 +1014,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "ScienceSIS": {
@@ -930,6 +1036,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Vita High School": {
@@ -950,6 +1059,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Living Water Elementary": {
@@ -971,6 +1083,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "One Hope Academy": {
@@ -989,6 +1104,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -1031,6 +1149,9 @@
               "ethnicities": [
                 "Not Specified or Other",
                 "White"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha San Francisco": {
@@ -1056,7 +1177,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Santa Barbara": {
               "count": 32,
@@ -1078,7 +1200,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha New York City": {
               "count": 63,
@@ -1103,7 +1226,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Lake Forest": {
               "count": 4,
@@ -1121,7 +1245,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Miami": {
               "count": 214,
@@ -1151,6 +1276,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha West Palm Beach": {
@@ -1174,7 +1302,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "NextGen Academy": {
               "count": 24,
@@ -1195,6 +1324,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "GT School": {
@@ -1220,6 +1352,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Montessorium Cedar Park": {
@@ -1243,7 +1378,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Brownsville": {
               "count": 138,
@@ -1272,6 +1408,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Texas Sports Academy": {
@@ -1299,6 +1438,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Scottsdale": {
@@ -1326,7 +1468,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Fort Worth": {
               "count": 30,
@@ -1350,7 +1493,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Plano": {
               "count": 8,
@@ -1371,7 +1515,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1399,7 +1544,8 @@
               "ethnicities": [
                 "American Indian or Alaska Native",
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1431,7 +1577,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Vita High School": {
               "count": 54,
@@ -1451,7 +1598,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "ScienceSIS": {
               "count": 51,
@@ -1470,7 +1618,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Immaculate Academy": {
               "count": 29,
@@ -1491,7 +1640,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "One Hope Academy": {
               "count": 9,
@@ -1509,7 +1659,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "LFG Academy": {
               "count": 32,
@@ -1531,7 +1682,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Kairos Learning Solutions": {
               "count": 44,
@@ -1554,7 +1706,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Living Water Elementary": {
               "count": 52,
@@ -1575,7 +1728,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1604,6 +1758,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Nova Academy Bastrop": {
@@ -1628,7 +1785,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1657,7 +1815,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1689,7 +1848,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "All American Prep": {
               "count": 12,
@@ -1708,7 +1868,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "The Saint James": {
               "count": 23,
@@ -1726,7 +1887,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Modern Samurai Academy": {
               "count": 25,
@@ -1749,7 +1911,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "The Bennett School": {
               "count": 30,
@@ -1769,7 +1932,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "DeepWater Prep": {
               "count": 11,
@@ -1788,7 +1952,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "AIE Elite Prep": {
               "count": 27,
@@ -1813,7 +1978,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -1848,6 +2014,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             },
             "Irvington High School": {
@@ -1866,6 +2036,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "wintertospring"
               ]
             },
             "SAT Prep High School": {
@@ -1887,7 +2060,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -1913,6 +2087,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "Alpha Austin": {
@@ -1943,6 +2122,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "NextGen Academy": {
@@ -1965,6 +2149,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             },
             "GT School": {
@@ -1991,6 +2179,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             },
             "Texas Sports Academy": {
@@ -2017,6 +2209,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "Alpha Miami": {
@@ -2043,6 +2240,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             },
             "Alpha Brownsville": {
@@ -2070,6 +2271,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -2099,6 +2305,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             }
           }
@@ -2131,7 +2341,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "SAT Prep High School": {
               "count": 6,
@@ -2150,7 +2361,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Irvington High School": {
               "count": 1,
@@ -2165,7 +2377,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -2201,6 +2414,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "NextGen Academy": {
@@ -2221,6 +2438,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Texas Sports Academy": {
@@ -2248,6 +2468,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "GT School": {
@@ -2272,6 +2496,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Miami": {
@@ -2298,6 +2525,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             },
             "Alpha Brownsville": {
@@ -2326,6 +2556,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Homeschool": {
@@ -2348,6 +2582,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -2378,6 +2616,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -2406,7 +2647,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Austin": {
               "count": 423,
@@ -2438,6 +2680,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Homeschool": {
@@ -2462,6 +2707,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Denver": {
@@ -2480,7 +2728,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Alpha Brownsville": {
               "count": 113,
@@ -2507,6 +2756,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "GT School": {
@@ -2528,7 +2780,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             },
             "Texas Sports Academy": {
               "count": 28,
@@ -2552,6 +2805,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Miami": {
@@ -2577,7 +2833,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -2616,6 +2873,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "Alpha Brownsville": {
@@ -2642,6 +2904,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -2682,6 +2949,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Brownsville": {
@@ -2707,6 +2978,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "2 Hour Learning": {
@@ -2728,6 +3003,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -2756,6 +3035,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Austin": {
@@ -2788,6 +3070,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Brownsville": {
@@ -2813,6 +3098,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             }
           }
@@ -2852,6 +3140,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "Alpha Brownsville": {
@@ -2878,6 +3171,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -2918,6 +3216,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Brownsville": {
@@ -2944,6 +3246,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -2984,6 +3289,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Brownsville": {
@@ -3011,7 +3319,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -3050,6 +3359,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             },
             "Alpha Dallas": {
@@ -3074,6 +3388,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             },
             "Alpha Brownsville": {
@@ -3096,7 +3414,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -3116,7 +3435,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -3156,6 +3476,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Alpha Dallas": {
@@ -3179,6 +3503,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -3199,7 +3526,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -3239,6 +3567,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             },
             "Alpha Dallas": {
@@ -3262,7 +3593,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         },
@@ -3282,7 +3614,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
@@ -3320,6 +3653,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -3358,6 +3696,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -3396,6 +3738,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             }
           }
@@ -3430,6 +3775,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -3467,6 +3817,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -3504,6 +3858,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             }
           }
@@ -3540,6 +3897,11 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring",
+                "springtospring"
               ]
             }
           }
@@ -3575,6 +3937,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
               ]
             }
           }
@@ -3610,6 +3976,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltofall"
               ]
             }
           }
@@ -3645,6 +4014,10 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltospring",
+                "wintertospring"
               ]
             }
           }
@@ -3679,6 +4052,9 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
               ]
             }
           }
@@ -3713,7 +4089,8 @@
               ],
               "ethnicities": [
                 "Not Specified or Other"
-              ]
+              ],
+              "growthPeriods": []
             }
           }
         }
