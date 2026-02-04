@@ -106,6 +106,15 @@ body {
   cursor: not-allowed;
 }
 
+.selection-summary {
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #e8f5e9;
+  border-radius: 4px;
+  text-align: center;
+  color: #2e7d32;
+}
+
 .generate-btn {
   width: 100%;
   padding: 15px 30px;

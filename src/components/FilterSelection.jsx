@@ -5,7 +5,6 @@ function FilterSelection({
   error,
   hasData,
   availableOptions,
-  filteredSchools,
   selection,
   onSelectionChange,
   onGenerate,
@@ -14,9 +13,16 @@ function FilterSelection({
     onSelectionChange(prev => {
       const updated = { ...prev, [field]: value };
 
-      // Reset dependent fields
-      if (field === 'districtname') {
+      // Reset downstream selections when upstream changes
+      if (field === 'termname') {
+        updated.districtname = '';
         updated.schoolname = '';
+        updated.grades = [];
+      } else if (field === 'districtname') {
+        updated.schoolname = '';
+        updated.grades = [];
+      } else if (field === 'schoolname') {
+        updated.grades = [];
       }
 
       return updated;
@@ -26,13 +32,14 @@ function FilterSelection({
   const canGenerate = hasData &&
     selection.termname &&
     selection.districtname &&
-    selection.schoolname;
+    selection.schoolname &&
+    !isLoading;
 
-  if (isLoading) {
+  if (isLoading && !hasData) {
     return (
       <div className="filter-selection">
         <h1>MAP Quadrant Report</h1>
-        <div className="loading">Loading data</div>
+        <div className="loading">Loading</div>
       </div>
     );
   }
@@ -50,7 +57,7 @@ function FilterSelection({
           id="term-select"
           value={selection.termname}
           onChange={(e) => handleSelectionChange('termname', e.target.value)}
-          disabled={!hasData}
+          disabled={!hasData || isLoading}
         >
           <option value="">Select a term...</option>
           {(availableOptions.terms || []).map(term => (
@@ -65,7 +72,7 @@ function FilterSelection({
           id="district-select"
           value={selection.districtname}
           onChange={(e) => handleSelectionChange('districtname', e.target.value)}
-          disabled={!hasData}
+          disabled={!hasData || !selection.termname || isLoading}
         >
           <option value="">Select a district...</option>
           {(availableOptions.districts || []).map(district => (
@@ -80,10 +87,10 @@ function FilterSelection({
           id="school-select"
           value={selection.schoolname}
           onChange={(e) => handleSelectionChange('schoolname', e.target.value)}
-          disabled={!hasData || !selection.districtname}
+          disabled={!hasData || !selection.districtname || isLoading}
         >
           <option value="">Select a school...</option>
-          {filteredSchools.map(school => (
+          {(availableOptions.schools || []).map(school => (
             <option key={school} value={school}>{school}</option>
           ))}
         </select>
@@ -95,7 +102,7 @@ function FilterSelection({
           id="grade-select"
           value={selection.grades[0] || ''}
           onChange={(e) => handleSelectionChange('grades', e.target.value ? [e.target.value] : [])}
-          disabled={!hasData}
+          disabled={!hasData || !selection.schoolname || isLoading}
         >
           <option value="">All Grades</option>
           {(availableOptions.grades || []).map(grade => (
@@ -104,12 +111,18 @@ function FilterSelection({
         </select>
       </div>
 
+      {selection.schoolname && availableOptions.studentCount > 0 && (
+        <div className="selection-summary">
+          <strong>{availableOptions.studentCount}</strong> students available
+        </div>
+      )}
+
       <button
         className="generate-btn"
         onClick={onGenerate}
         disabled={!canGenerate}
       >
-        Generate Report
+        {isLoading ? 'Loading...' : 'Generate Report'}
       </button>
     </div>
   );

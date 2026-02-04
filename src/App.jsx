@@ -5,19 +5,29 @@ import QuadrantChart from './components/QuadrantChart';
 import ChartFilters from './components/ChartFilters';
 import DataTable from './components/DataTable';
 import QuadrantLegend from './components/QuadrantLegend';
-import { fetchAndParseCSV, getUniqueValues } from './utils/csvParser';
-import { deduplicateData, filterData, processData, getChartEligibleStudents } from './utils/dataTransforms';
+import { getUniqueValues } from './utils/csvParser';
+import { filterData, processData, getChartEligibleStudents } from './utils/dataTransforms';
 
-const DATA_URL = import.meta.env.BASE_URL + 'data.csv';
+const BASE_URL = import.meta.env.BASE_URL;
+
+// Sanitize string to match build script output
+function sanitize(str) {
+  return str.replace(/[^a-zA-Z0-9-_]/g, '_').toLowerCase();
+}
 
 function App() {
   // View state
   const [view, setView] = useState('selection'); // 'selection' or 'report'
 
-  // Data state
-  const [rawData, setRawData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // Metadata state (small, loads fast)
+  const [metadata, setMetadata] = useState(null);
+  const [metadataLoading, setMetadataLoading] = useState(true);
+  const [metadataError, setMetadataError] = useState(null);
+
+  // Report data state (loaded on demand)
+  const [reportData, setReportData] = useState([]);
+  const [dataLoading, setDataLoading] = useState(false);
+  const [dataError, setDataError] = useState(null);
 
   // Selection filters (for initial report generation)
   const [selection, setSelection] = useState({
@@ -37,116 +47,131 @@ function App() {
     pointShapeBy: 'subject',
   });
 
-  // Load CSV data on mount
+  // Load metadata on mount
   useEffect(() => {
-    async function loadData() {
-      setIsLoading(true);
-      setError(null);
+    async function loadMetadata() {
+      setMetadataLoading(true);
+      setMetadataError(null);
 
       try {
-        const { data, errors } = await fetchAndParseCSV(DATA_URL);
-
-        if (errors.length > 0) {
-          console.warn('CSV parse warnings:', errors);
-        }
-
-        // Deduplicate the data
-        const deduplicated = deduplicateData(data);
-        setRawData(deduplicated);
-
+        const response = await fetch(`${BASE_URL}data/metadata.json`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        setMetadata(data);
       } catch (err) {
-        setError(`Failed to load data: ${err.message}`);
+        setMetadataError(`Failed to load metadata: ${err.message}`);
       } finally {
-        setIsLoading(false);
+        setMetadataLoading(false);
       }
     }
 
-    loadData();
+    loadMetadata();
   }, []);
 
-  // Get available options from raw data
+  // Compute available options from metadata based on current selection
   const availableOptions = useMemo(() => {
-    if (rawData.length === 0) return {};
+    if (!metadata) return {};
 
-    return {
-      terms: getUniqueValues(rawData, 'termname'),
-      districts: getUniqueValues(rawData, 'districtname'),
-      schools: getUniqueValues(rawData, 'schoolname'),
-      grades: getUniqueValues(rawData, 'grade'),
-      subjects: getUniqueValues(rawData, 'subject'),
-      genders: getUniqueValues(rawData, 'studentgender'),
-      ethnicities: getUniqueValues(rawData, 'studentethnicgroup'),
-    };
-  }, [rawData]);
+    const terms = Object.keys(metadata.terms).sort();
 
-  // Filter schools by selected district
-  const filteredSchools = useMemo(() => {
-    if (!selection.districtname || rawData.length === 0) return availableOptions.schools || [];
+    let districts = [];
+    if (selection.termname && metadata.terms[selection.termname]) {
+      districts = Object.keys(metadata.terms[selection.termname].districts).sort();
+    }
 
-    const schoolsInDistrict = new Set();
-    for (const row of rawData) {
-      if (row.districtname === selection.districtname && row.schoolname) {
-        schoolsInDistrict.add(row.schoolname);
+    let schools = [];
+    let schoolMeta = null;
+    if (selection.termname && selection.districtname) {
+      const districtData = metadata.terms[selection.termname]?.districts[selection.districtname];
+      if (districtData) {
+        schools = Object.keys(districtData.schools).sort();
+        if (selection.schoolname) {
+          schoolMeta = districtData.schools[selection.schoolname];
+        }
       }
     }
-    return Array.from(schoolsInDistrict).sort();
-  }, [rawData, selection.districtname, availableOptions.schools]);
 
-  // Generate report - apply selection filters
-  const handleGenerateReport = useCallback(() => {
-    // Initialize report filters with all available values checked
-    const filteredBySelection = filterData(rawData, selection);
-    const subjects = getUniqueValues(filteredBySelection, 'subject');
-    const genders = getUniqueValues(filteredBySelection, 'studentgender');
-    const ethnicities = getUniqueValues(filteredBySelection, 'studentethnicgroup');
+    return {
+      terms,
+      districts,
+      schools,
+      grades: schoolMeta?.grades || [],
+      subjects: schoolMeta?.subjects || [],
+      genders: schoolMeta?.genders || [],
+      ethnicities: schoolMeta?.ethnicities || [],
+      studentCount: schoolMeta?.count || 0,
+    };
+  }, [metadata, selection]);
 
-    setReportFilters({
-      subjects: subjects,
-      genders: genders,
-      ethnicities: ethnicities,
-      showNames: true,
-      showQuadrantColors: true,
-      pointShapeBy: 'subject',
-    });
+  // Load school data and generate report
+  const handleGenerateReport = useCallback(async () => {
+    setDataLoading(true);
+    setDataError(null);
 
-    setView('report');
-  }, [rawData, selection]);
+    try {
+      // Build path to data file
+      const dataPath = `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(selection.districtname)}/${sanitize(selection.schoolname)}.json`;
 
-  // Process data for report display
-  const reportData = useMemo(() => {
-    if (view !== 'report' || rawData.length === 0) return [];
+      const response = await fetch(dataPath);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const rawData = await response.json();
 
-    // Apply selection filters first
-    let data = filterData(rawData, selection);
+      // Apply grade filter if selected
+      let filteredData = rawData;
+      if (selection.grades.length > 0) {
+        filteredData = rawData.filter(r => selection.grades.includes(r.grade));
+      }
 
-    // Apply report-level filters
-    data = filterData(data, {
+      // Process data with calculations
+      const processed = processData(filteredData, 'falltowinter');
+      setReportData(processed);
+
+      // Initialize report filters with all available values
+      const subjects = getUniqueValues(processed, 'subject');
+      const genders = getUniqueValues(processed, 'studentgender');
+      const ethnicities = getUniqueValues(processed, 'studentethnicgroup');
+
+      setReportFilters({
+        subjects,
+        genders,
+        ethnicities,
+        showNames: true,
+        showQuadrantColors: true,
+        pointShapeBy: 'subject',
+      });
+
+      setView('report');
+    } catch (err) {
+      setDataError(`Failed to load data: ${err.message}`);
+    } finally {
+      setDataLoading(false);
+    }
+  }, [selection]);
+
+  // Filter report data based on report-level filters
+  const filteredReportData = useMemo(() => {
+    if (reportData.length === 0) return [];
+
+    return filterData(reportData, {
       subjects: reportFilters.subjects,
       genders: reportFilters.genders,
       ethnicities: reportFilters.ethnicities,
     });
-
-    // Calculate derived values
-    return processData(data, 'falltowinter');
-  }, [rawData, selection, reportFilters, view]);
+  }, [reportData, reportFilters]);
 
   // Get chart-eligible students (have both X and Y axis values)
   const chartData = useMemo(() => {
-    return getChartEligibleStudents(reportData);
-  }, [reportData]);
+    return getChartEligibleStudents(filteredReportData);
+  }, [filteredReportData]);
 
-  // Available filter options in report view (from selection-filtered data)
+  // Available filter options in report view
   const reportFilterOptions = useMemo(() => {
-    if (view !== 'report' || rawData.length === 0) return {};
-
-    const filteredBySelection = filterData(rawData, selection);
-
     return {
-      subjects: getUniqueValues(filteredBySelection, 'subject'),
-      genders: getUniqueValues(filteredBySelection, 'studentgender'),
-      ethnicities: getUniqueValues(filteredBySelection, 'studentethnicgroup'),
+      subjects: getUniqueValues(reportData, 'subject'),
+      genders: getUniqueValues(reportData, 'studentgender'),
+      ethnicities: getUniqueValues(reportData, 'studentethnicgroup'),
     };
-  }, [rawData, selection, view]);
+  }, [reportData]);
 
   // Handle going back to filter selection
   const handleEditCriteria = useCallback(() => {
@@ -158,11 +183,10 @@ function App() {
     return (
       <div className="app">
         <FilterSelection
-          isLoading={isLoading}
-          error={error}
-          hasData={rawData.length > 0}
+          isLoading={metadataLoading || dataLoading}
+          error={metadataError || dataError}
+          hasData={metadata !== null}
           availableOptions={availableOptions}
-          filteredSchools={filteredSchools}
           selection={selection}
           onSelectionChange={setSelection}
           onGenerate={handleGenerateReport}
@@ -176,7 +200,7 @@ function App() {
       <div className="report">
         <ReportHeader
           selection={selection}
-          data={reportData}
+          data={filteredReportData}
           onEditCriteria={handleEditCriteria}
         />
 
@@ -199,7 +223,7 @@ function App() {
         </div>
 
         <DataTable
-          data={reportData}
+          data={filteredReportData}
           showQuadrantColors={reportFilters.showQuadrantColors}
         />
       </div>

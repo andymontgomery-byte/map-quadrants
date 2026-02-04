@@ -24,8 +24,9 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Data file (too large for git, deploy separately)
+# Data files (generated from CSV, deploy separately)
 public/data.csv
+public/data/
 
 # Test artifacts
 test-results/

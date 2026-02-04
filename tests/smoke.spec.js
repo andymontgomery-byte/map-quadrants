@@ -96,9 +96,10 @@ test.describe('MAP Quadrant Report Smoke Test', () => {
       path: path.join(SCREENSHOTS_DIR, '07-chart-detail.png')
     });
 
-    // Step 12: Screenshot of just the table header
-    const tableElement = page.locator('.data-table-container');
-    await tableElement.screenshot({
+    // Step 12: Scroll to table and screenshot
+    await page.locator('.data-table-container').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    await page.screenshot({
       path: path.join(SCREENSHOTS_DIR, '08-table-detail.png')
     });
 

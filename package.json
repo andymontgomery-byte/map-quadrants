@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:data": "node scripts/build-data.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "playwright test",
     "test:smoke": "playwright test smoke",
     "test:ui": "playwright test --ui",
-    "deploy": "npm run build && cp public/data.csv dist/ && gh-pages -d dist"
+    "deploy": "npm run build && cp -r public/data dist/ && gh-pages -d dist"
   },
   "dependencies": {
+    "csv-parse": "^6.1.0",
     "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
