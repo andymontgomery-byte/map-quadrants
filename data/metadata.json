@@ -2342,7 +2342,9 @@
               "ethnicities": [
                 "Not Specified or Other"
               ],
-              "growthPeriods": []
+              "growthPeriods": [
+                "falltowinter"
+              ]
             },
             "SAT Prep High School": {
               "count": 6,
