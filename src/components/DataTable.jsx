@@ -1,8 +1,14 @@
 import { useState, useMemo, useCallback } from 'react';
 import { getQuadrant, QUADRANT_COLORS } from '../utils/quadrantLogic';
 import { groupBySubject } from '../utils/dataTransforms';
+import { getTermLabels } from '../utils/termUtils';
 
-function DataTable({ data, showQuadrantColors }) {
+function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
+  // Get dynamic term labels
+  const termLabels = useMemo(
+    () => getTermLabels(termname, growthPeriod),
+    [termname, growthPeriod]
+  );
   const [sortConfig, setSortConfig] = useState({ key: 'studentName', direction: 'asc' });
   const [collapsedGroups, setCollapsedGroups] = useState(new Set());
 
@@ -60,10 +66,13 @@ function DataTable({ data, showQuadrantColors }) {
   };
 
   // Format RIT range as "low-mid-high" with mid bolded
-  const formatRITRange = (rit, se) => {
+  // Uses ±1*SE per NWEA display format
+  const formatRITRange = (rit, se, hasData = true) => {
+    if (!hasData) return '***';
     if (rit == null) return '—';
-    const low = Math.round(rit - 2 * (se || 0));
-    const high = Math.round(rit + 2 * (se || 0));
+    const seVal = se || 0;
+    const low = Math.round(rit - seVal);
+    const high = Math.round(rit + seVal);
     return (
       <span>
         {low}-<strong>{Math.round(rit)}</strong>-{high}
@@ -71,18 +80,13 @@ function DataTable({ data, showQuadrantColors }) {
     );
   };
 
-  // Format percentile range
-  const formatPercentileRange = (percentile, se) => {
+  // Format percentile - just show the bold value
+  // NWEA's range requires norm tables we don't have, so we only show the percentile
+  const formatPercentileRange = (percentile, se, hasData = true) => {
+    if (!hasData) return '***';
     if (percentile == null) return '—';
-    // Estimate range based on SE (rough approximation)
-    const seEstimate = se || 3;
-    const low = Math.max(1, Math.round(percentile - seEstimate * 5));
-    const high = Math.min(99, Math.round(percentile + seEstimate * 5));
-    return (
-      <span>
-        {low}-<strong>{Math.round(percentile)}</strong>-{high}
-      </span>
-    );
+
+    return <strong>{Math.round(percentile)}</strong>;
   };
 
   // Format date as M/D/YY
@@ -120,8 +124,8 @@ function DataTable({ data, showQuadrantColors }) {
           {/* Tier 2 */}
           <tr className="header-tier-2">
             <th colSpan={4}></th>
-            <th colSpan={2}>Winter 2025</th>
-            <th colSpan={2}>Winter 2026</th>
+            <th colSpan={2}>{termLabels.startLabel || 'Start'}</th>
+            <th colSpan={2}>{termLabels.endLabel || 'End'}</th>
             <th colSpan={5}>Student</th>
             <th colSpan={3}>Comparative</th>
           </tr>
@@ -133,10 +137,10 @@ function DataTable({ data, showQuadrantColors }) {
               Student Name<br />Student ID <SortIcon columnKey="studentName" />
             </th>
             <th onClick={() => handleSort('grade')}>
-              WI 2026<br />Grade <SortIcon columnKey="grade" />
+              {termLabels.endCode || 'End'}<br />Grade <SortIcon columnKey="grade" />
             </th>
             <th onClick={() => handleSort('teststartdate')}>
-              WI 2026<br />Date <SortIcon columnKey="teststartdate" />
+              {termLabels.endCode || 'End'}<br />Date <SortIcon columnKey="teststartdate" />
             </th>
             <th className="numeric">
               RIT Score<br />Range
@@ -220,20 +224,23 @@ function DataTable({ data, showQuadrantColors }) {
                   {/* Test Date */}
                   <td>{formatDate(student.teststartdate)}</td>
 
-                  {/* Winter 2025 (Fall/previous) Achievement */}
-                  <td className="numeric">{formatRITRange(student.fallRIT, student.teststandarderror)}</td>
-                  <td className="numeric">{formatPercentileRange(null, null)}</td>
+                  {/* Start term (Fall/previous) Achievement - show *** if no growth data */}
+                  <td className="numeric">{formatRITRange(student.fallRIT, student.teststandarderror, student.hasGrowthData)}</td>
+                  <td className="numeric">{formatPercentileRange(student.startTermPercentile, student.startTermSE, student.hasGrowthData)}</td>
 
-                  {/* Winter 2026 Achievement */}
-                  <td className="numeric">{formatRITRange(student.winterRIT, parseFloat(student.teststandarderror))}</td>
-                  <td className="numeric">{formatPercentileRange(student.winterPercentile, parseFloat(student.teststandarderror))}</td>
+                  {/* End term (Winter) Achievement */}
+                  <td className="numeric">{formatRITRange(student.winterRIT, student.teststandarderror)}</td>
+                  <td className="numeric">{formatPercentileRange(student.winterPercentile, student.teststandarderror)}</td>
 
-                  {/* Growth - Student */}
+                  {/* Growth - Student (show — if null, not "0") */}
                   <td className="numeric">{student.projectedRIT ?? '—'}</td>
-                  <td className="numeric">{student.projectedGrowth?.toFixed(0) ?? '—'}</td>
-                  <td className="numeric">{student.observedGrowth?.toFixed(0) ?? '—'}</td>
-                  <td className="numeric">{student.growthSE?.toFixed(1) ?? '—'}</td>
-                  <td className="numeric">{student.conditionalGrowthIndex != null ? Math.round(student.conditionalGrowthIndex * 100) / 100 : '—'}</td>
+                  <td className="numeric">{student.projectedGrowth != null ? student.projectedGrowth.toFixed(0) : '—'}</td>
+                  <td className="numeric">{student.observedGrowth != null ? student.observedGrowth.toFixed(0) : '—'}</td>
+                  <td className="numeric">{student.growthSE != null ? student.growthSE.toFixed(1) : '—'}</td>
+                  {/* Growth Index = Observed Growth - Projected Growth (NOT Conditional Growth Index) */}
+                  <td className="numeric">{student.observedGrowth != null && student.projectedGrowth != null
+                    ? (student.observedGrowth - student.projectedGrowth).toFixed(0)
+                    : '—'}</td>
 
                   {/* Growth - Comparative */}
                   <td>{formatMetGrowth(student.metProjectedGrowth)}</td>

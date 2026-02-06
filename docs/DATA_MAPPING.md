@@ -216,7 +216,59 @@ Quadrant: High Achievement / High Growth (green)
 
 ---
 
-## Part 7: Deduplication Rules
+## Part 7: Dynamic Table Headers
+
+The table headers dynamically change based on the selected **growth period**. The header terms are calculated from the term name and growth period using `src/utils/termUtils.js`.
+
+### Header Calculation Logic
+
+Given a term like "Winter 2025-2026" (startYear=2025, endYear=2026):
+
+| Growth Period | Start Header | End Header | Tier 3 Code |
+|---------------|--------------|------------|-------------|
+| Fall to Winter | Fall 2025 | Winter 2026 | WI 2026 |
+| Winter to Winter | Winter 2025 | Winter 2026 | WI 2026 |
+| Fall to Spring | Fall 2024 | Spring 2025 | SP 2025 |
+| Winter to Spring | Winter 2025 | Spring 2025 | SP 2025 |
+| Spring to Spring | Spring 2024 | Spring 2025 | SP 2025 |
+| Fall to Fall | Fall 2024 | Fall 2025 | FA 2025 |
+
+### Table Structure
+
+**Tier 1** (static):
+- Empty (4 cols)
+- "Achievement Status" (4 cols)
+- "Growth" (8 cols)
+
+**Tier 2** (dynamic based on growth period):
+- Empty (4 cols)
+- Start Term: e.g., "Fall 2025" (2 cols)
+- End Term: e.g., "Winter 2026" (2 cols)
+- "Student" (5 cols)
+- "Comparative" (3 cols)
+
+**Tier 3** (column headers, dynamic prefix):
+- Columns 3 & 4 use the end term code: "{endCode}Grade", "{endCode}Date"
+- Example: "WI 2026Grade", "WI 2026Date"
+
+### Implementation
+
+```javascript
+// src/utils/termUtils.js
+const labels = getTermLabels('Winter 2025-2026', 'falltowinter');
+// Returns:
+// {
+//   startLabel: 'Fall 2025',
+//   endLabel: 'Winter 2026',
+//   startCode: 'FA 2025',
+//   endCode: 'WI 2026',
+//   ...
+// }
+```
+
+---
+
+## Part 8: Deduplication Rules
 
 ### Historical Data (2017-2023)
 Filter: `growthmeasureyn = 'true'`
@@ -235,7 +287,7 @@ This handles:
 
 ---
 
-## Part 8: Chart Eligibility
+## Part 9: Chart Eligibility
 
 A student appears on the quadrant chart only if they have:
 
@@ -248,3 +300,53 @@ Students without growth data (no fall baseline test) will not appear on the char
 - Total unique student-subject: 4,288
 - With fall-to-winter growth data: ~4,701 (some have multiple subjects)
 - Without growth data: Won't appear on chart
+
+---
+
+## Part 10: Level Filter Mapping
+
+### Level to Grade Mapping
+
+The Level filter maps to NWEA's Class filter structure. Each level corresponds to specific grades:
+
+| Level Code | Level Name | Grades Included |
+|------------|------------|-----------------|
+| WL | Willing Learners (Pre-K) | PK |
+| LL | Little Learners (K-1) | K, 1 |
+| L1 | Level 1 (2-3) | 2, 3 |
+| L2 | Level 2 (4-5) | 4, 5 |
+| MS | Middle School (6-8) | 6, 7, 8 |
+| HS | High School (9-12) | 9, 10, 11, 12 |
+
+### NWEA Class to Level Mapping
+
+When comparing with NWEA reports, use these equivalences:
+
+| NWEA Class Name | Our Level Filter |
+|-----------------|------------------|
+| WL / Willing Learners | WL |
+| LL / Little Learners | LL |
+| L1 / Level 1 | L1 |
+| L2 / Level 2 | L2 |
+| MS / Middle School | MS |
+| HS / High School | HS |
+
+### Implementation
+
+```javascript
+// src/components/FilterSelection.jsx
+const LEVEL_GRADES = {
+  WL: ['PK'],
+  LL: ['K', '1'],
+  L1: ['2', '3'],
+  L2: ['4', '5'],
+  MS: ['6', '7', '8'],
+  HS: ['9', '10', '11', '12'],
+};
+```
+
+### Usage Notes
+
+- When Level is selected, the grades array is automatically populated
+- Level filter is optional - selecting "All Levels" includes all grades
+- The CSV `grade` column values must match: `PK`, `K`, `1`, `2`, ... `12`

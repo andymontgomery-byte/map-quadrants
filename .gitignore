@@ -32,3 +32,9 @@ public/data/
 test-results/
 test-screenshots/
 playwright-report/
+nwea-auth.json
+
+# NWEA credential-containing files (do not commit)
+scripts/nwea-navigation.spec.js
+tests/nwea-navigation.spec.js
+tests/full-comparison.spec.js

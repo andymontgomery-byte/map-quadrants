@@ -25,6 +25,10 @@ function sanitize(str) {
 }
 
 // Deduplicate rows per term
+// Per NWEA documentation: https://teach.mapnwea.org/impl/maphelp/Content/Data/DataMissingWrong_Invalid.htm
+// 1. If growthmeasureyn='true' exists, use those rows
+// 2. Otherwise, use lowest teststandarderror (most reliable measurement)
+// 3. If SEs are equal, use most recent date or highest RIT
 function deduplicateTermData(rows) {
   const hasGrowthMeasure = rows.some(r => r.growthmeasureyn === 'true');
 
@@ -32,7 +36,7 @@ function deduplicateTermData(rows) {
     return rows.filter(r => r.growthmeasureyn === 'true');
   }
 
-  // Fallback: keep highest RIT per student+subject
+  // Fallback: lowest standard error (SE), then most recent date, then highest RIT
   const groups = {};
   for (const row of rows) {
     const key = `${row.studentid}|${row.subject}`;
@@ -40,13 +44,27 @@ function deduplicateTermData(rows) {
     groups[key].push(row);
   }
 
-  return Object.values(groups).map(group =>
-    group.reduce((best, curr) => {
+  return Object.values(groups).map(group => {
+    return group.reduce((best, curr) => {
+      const currSE = parseFloat(curr.teststandarderror) || 999;
+      const bestSE = parseFloat(best.teststandarderror) || 999;
+
+      // Primary: lowest SE
+      if (currSE < bestSE) return curr;
+      if (currSE > bestSE) return best;
+
+      // Secondary: most recent date (YYYY-MM-DD sorts correctly as string)
+      const currDate = curr.teststartdate || '';
+      const bestDate = best.teststartdate || '';
+      if (currDate > bestDate) return curr;
+      if (currDate < bestDate) return best;
+
+      // Tertiary: highest RIT
       const currScore = parseFloat(curr.testritscore) || 0;
       const bestScore = parseFloat(best.testritscore) || 0;
       return currScore > bestScore ? curr : best;
-    })
-  );
+    });
+  });
 }
 
 async function main() {

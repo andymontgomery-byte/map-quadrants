@@ -8,11 +8,11 @@
 }
 
 :root {
-  /* Colors from NWEA design */
-  --quadrant-high-high: #90EE90;
-  --quadrant-low-high: #FFFF99;
-  --quadrant-low-low: #FFB6C1;
-  --quadrant-high-low: #E8F5E9;
+  /* Quadrant colors extracted from NWEA screenshot */
+  --quadrant-high-high: #b7dcbe;   /* High Achievement / High Growth - Green (top-right) */
+  --quadrant-low-high: #fae3b3;    /* Low Achievement / High Growth - Yellow/Tan (top-left) */
+  --quadrant-low-low: #f8d7d5;     /* Low Achievement / Low Growth - Pink/Salmon (bottom-left) */
+  --quadrant-high-low: #fefbcc;    /* High Achievement / Low Growth - Pale Yellow (bottom-right) */
 
   --subject-math: #FFD700;
   --subject-reading: #DC143C;
@@ -444,21 +444,13 @@ body {
   background-color: inherit;
 }
 
-/* Quadrant row colors */
-.row-high-high {
-  background-color: var(--quadrant-high-high);
-}
-
-.row-low-high {
-  background-color: var(--quadrant-low-high);
-}
-
-.row-low-low {
-  background-color: var(--quadrant-low-low);
-}
-
+/* Quadrant row colors - REMOVED: NWEA only shows color in the quadrant box, not full row */
+/* Row classes kept for potential future use but with no background */
+.row-high-high,
+.row-low-high,
+.row-low-low,
 .row-high-low {
-  background-color: var(--quadrant-high-low);
+  /* No row background - only quadrant-box gets color */
 }
 
 /* Subject Group Headers */

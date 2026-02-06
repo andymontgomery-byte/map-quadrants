@@ -74,6 +74,21 @@ Determines which start/end terms to use for growth calculations.
 
 **Note:** The screenshot shows "Growth Comparison Period: Fall 2025 - Winter 2026" which uses `falltowinter*` columns.
 
+### Effect on Table Headers
+
+The growth period selection **dynamically changes the table headers**:
+
+1. **Tier 2 headers** show the start and end term names
+   - Example: "Fall 2025" and "Winter 2026" for Fall to Winter
+
+2. **Tier 3 column headers** for Grade and Date use the end term code
+   - Example: "WI 2026Grade" and "WI 2026Date" for Winter 2026 end term
+
+3. **Report header** shows the growth comparison period
+   - Example: "Growth Comparison Period: Fall 2025 - Winter 2026"
+
+See `src/utils/termUtils.js` for the term label calculation logic and `docs/DATA_MAPPING.md` Part 7 for complete documentation.
+
 ---
 
 ### 5. Norms Reference Data (normsreferencedata)
@@ -90,8 +105,28 @@ The norms year for percentile calculations.
 
 ## Optional Filter Parameters
 
-### 6. Grade (grade)
-Filter students by grade level.
+### 6. Level (Corresponds to NWEA Class)
+Filter students by level grouping. This maps to NWEA's "Class" filter.
+
+**Not a CSV column** - derived from `grade` column values.
+
+**Allowed Values:**
+
+| Level Code | Display Name | Grades Included | NWEA Class Equivalent |
+|------------|--------------|-----------------|----------------------|
+| WL | WL (Pre-K) | PK | Willing Learners |
+| LL | LL (K-1) | K, 1 | Little Learners |
+| L1 | L1 (2-3) | 2, 3 | Level 1 |
+| L2 | L2 (4-5) | 4, 5 | Level 2 |
+| MS | MS (6-8) | 6, 7, 8 | Middle School |
+| HS | HS (9-12) | 9, 10, 11, 12 | High School |
+
+**Usage:** Selecting a Level automatically filters to the corresponding grades.
+
+---
+
+### 7. Grade (grade)
+Filter students by individual grade level.
 
 **CSV Column:** `grade` (col 155)
 
@@ -100,9 +135,11 @@ Filter students by grade level.
 - `K` - Kindergarten
 - `1` through `12` - Grades 1-12
 
+**Note:** When Level filter is used, grades are set automatically.
+
 ---
 
-### 7. Subject (subject)
+### 8. Subject (subject)
 Filter by test subject.
 
 **CSV Column:** `subject` (col 8)
@@ -116,7 +153,7 @@ Filter by test subject.
 
 ---
 
-### 8. Course (course)
+### 9. Course (course)
 More specific course designation.
 
 **CSV Column:** `course` (col 9)
@@ -131,7 +168,7 @@ More specific course designation.
 
 ---
 
-### 9. Gender (studentgender)
+### 10. Gender (studentgender)
 Filter by student gender.
 
 **CSV Column:** `studentgender` (col 154)
@@ -144,7 +181,7 @@ Filter by student gender.
 
 ---
 
-### 10. Ethnicity (studentethnicgroup)
+### 11. Ethnicity (studentethnicgroup)
 Filter by student ethnicity.
 
 **CSV Column:** `studentethnicgroup` (col 152)
@@ -158,7 +195,7 @@ Filter by student ethnicity.
 
 ---
 
-### 11. Teacher (teachername)
+### 12. Teacher (teachername)
 Filter by teacher assignment.
 
 **CSV Column:** `teachername` (col 145)

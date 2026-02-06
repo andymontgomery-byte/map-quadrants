@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
+import { getTermLabels } from '../utils/termUtils';
 
-function ReportHeader({ selection, data, onEditCriteria }) {
+function ReportHeader({ selection, data, onEditCriteria, growthPeriod }) {
   // Get weeks of instruction from first row of data
   const weeksOfInstruction = useMemo(() => {
     if (!data || data.length === 0) return { fall: '—', winter: '—' };
@@ -18,22 +19,12 @@ function ReportHeader({ selection, data, onEditCriteria }) {
     return data[0].normsreferencedata ? `${data[0].normsreferencedata} Norms` : '—';
   }, [data]);
 
-  // Parse term for growth period display
-  const growthPeriod = useMemo(() => {
-    const term = selection.termname || '';
-    // Extract year range, e.g., "Winter 2025-2026" -> "Fall 2025 - Winter 2026"
-    const match = term.match(/(\w+)\s+(\d{4})-(\d{4})/);
-    if (!match) return '—';
-
-    const [, season, startYear, endYear] = match;
-
-    if (season === 'Winter') {
-      return `Fall ${startYear} - Winter ${endYear}`;
-    } else if (season === 'Spring') {
-      return `Fall ${startYear} - Spring ${endYear}`;
-    }
-    return '—';
-  }, [selection.termname]);
+  // Get dynamic growth period label using termUtils
+  const growthPeriodDisplay = useMemo(() => {
+    const labels = getTermLabels(selection.termname, growthPeriod);
+    if (!labels.startLabel || !labels.endLabel) return '—';
+    return `${labels.startLabel} - ${labels.endLabel}`;
+  }, [selection.termname, growthPeriod]);
 
   return (
     <div className="report-header">
@@ -54,12 +45,16 @@ function ReportHeader({ selection, data, onEditCriteria }) {
 
         <div className="criteria-item">
           <span className="criteria-label">District:</span>
-          <span className="criteria-value">{selection.districtname || '—'}</span>
+          <span className="criteria-value">
+            {selection.districtname === '__all__' ? 'All Districts' : (selection.districtname || '—')}
+          </span>
         </div>
 
         <div className="criteria-item">
           <span className="criteria-label">School:</span>
-          <span className="criteria-value">{selection.schoolname || '—'}</span>
+          <span className="criteria-value">
+            {selection.schoolname === '__all__' ? 'All Schools' : (selection.schoolname || '—')}
+          </span>
         </div>
 
         <div className="criteria-item">
@@ -69,7 +64,7 @@ function ReportHeader({ selection, data, onEditCriteria }) {
 
         <div className="criteria-item">
           <span className="criteria-label">Growth Comparison Period:</span>
-          <span className="criteria-value">{growthPeriod}</span>
+          <span className="criteria-value">{growthPeriodDisplay}</span>
         </div>
 
         <div className="criteria-item">
@@ -79,10 +74,10 @@ function ReportHeader({ selection, data, onEditCriteria }) {
           </span>
         </div>
 
-        {selection.grades && selection.grades.length > 0 && (
+        {selection.level && (
           <div className="criteria-item">
-            <span className="criteria-label">Grade:</span>
-            <span className="criteria-value">{selection.grades.join(', ')}</span>
+            <span className="criteria-label">Level:</span>
+            <span className="criteria-value">{selection.level} (Grades {selection.grades.join(', ')})</span>
           </div>
         )}
 

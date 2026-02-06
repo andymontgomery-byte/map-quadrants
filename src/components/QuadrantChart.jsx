@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
 import { QUADRANT_COLORS, getQuadrant, getSubjectColor, resolveOverlaps } from '../utils/quadrantLogic';
 
-const CHART_SIZE = 600;
+const CHART_WIDTH = 700;
+const CHART_HEIGHT = 500;
 const PADDING = 60;
-const CHART_AREA = CHART_SIZE - 2 * PADDING;
+const CHART_AREA_X = CHART_WIDTH - 2 * PADDING;
+const CHART_AREA_Y = CHART_HEIGHT - 2 * PADDING;
 
 function QuadrantChart({ data, showNames, showQuadrantColors }) {
   // Convert percentile to pixel coordinate
-  const toPixelX = (percentile) => PADDING + (percentile / 100) * CHART_AREA;
-  const toPixelY = (percentile) => PADDING + ((100 - percentile) / 100) * CHART_AREA; // Invert Y
+  const toPixelX = (percentile) => PADDING + (percentile / 100) * CHART_AREA_X;
+  const toPixelY = (percentile) => PADDING + ((100 - percentile) / 100) * CHART_AREA_Y; // Invert Y
 
   // Prepare point data
   const points = useMemo(() => {
@@ -40,7 +42,7 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
     <div className="quadrant-chart">
       <div className="chart-title">Achievement Status and Growth Quadrant Chart</div>
       <div className="chart-svg-container">
-        <svg width={CHART_SIZE} height={CHART_SIZE} viewBox={`0 0 ${CHART_SIZE} ${CHART_SIZE}`}>
+        <svg width={CHART_WIDTH} height={CHART_HEIGHT} viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}>
           {/* Quadrant backgrounds */}
           {showQuadrantColors && (
             <g className="quadrant-backgrounds">
@@ -48,8 +50,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               <rect
                 x={PADDING}
                 y={toPixelY(50)}
-                width={CHART_AREA / 2}
-                height={CHART_AREA / 2}
+                width={CHART_AREA_X / 2}
+                height={CHART_AREA_Y / 2}
                 fill={QUADRANT_COLORS.lowLow}
                 className="quadrant-bg"
               />
@@ -57,8 +59,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               <rect
                 x={toPixelX(50)}
                 y={toPixelY(50)}
-                width={CHART_AREA / 2}
-                height={CHART_AREA / 2}
+                width={CHART_AREA_X / 2}
+                height={CHART_AREA_Y / 2}
                 fill={QUADRANT_COLORS.highLow}
                 className="quadrant-bg"
               />
@@ -66,8 +68,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               <rect
                 x={PADDING}
                 y={PADDING}
-                width={CHART_AREA / 2}
-                height={CHART_AREA / 2}
+                width={CHART_AREA_X / 2}
+                height={CHART_AREA_Y / 2}
                 fill={QUADRANT_COLORS.lowHigh}
                 className="quadrant-bg"
               />
@@ -75,8 +77,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               <rect
                 x={toPixelX(50)}
                 y={PADDING}
-                width={CHART_AREA / 2}
-                height={CHART_AREA / 2}
+                width={CHART_AREA_X / 2}
+                height={CHART_AREA_Y / 2}
                 fill={QUADRANT_COLORS.highHigh}
                 className="quadrant-bg"
               />
@@ -92,14 +94,14 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
                   x1={toPixelX(val)}
                   y1={PADDING}
                   x2={toPixelX(val)}
-                  y2={CHART_SIZE - PADDING}
+                  y2={CHART_HEIGHT - PADDING}
                   className="grid-line"
                 />
                 {/* Horizontal grid line */}
                 <line
                   x1={PADDING}
                   y1={toPixelY(val)}
-                  x2={CHART_SIZE - PADDING}
+                  x2={CHART_WIDTH - PADDING}
                   y2={toPixelY(val)}
                   className="grid-line"
                 />
@@ -112,13 +114,13 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             x1={toPixelX(50)}
             y1={PADDING}
             x2={toPixelX(50)}
-            y2={CHART_SIZE - PADDING}
+            y2={CHART_HEIGHT - PADDING}
             className="center-line"
           />
           <line
             x1={PADDING}
             y1={toPixelY(50)}
-            x2={CHART_SIZE - PADDING}
+            x2={CHART_WIDTH - PADDING}
             y2={toPixelY(50)}
             className="center-line"
           />
@@ -126,16 +128,16 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
           {/* Axes */}
           <line
             x1={PADDING}
-            y1={CHART_SIZE - PADDING}
-            x2={CHART_SIZE - PADDING}
-            y2={CHART_SIZE - PADDING}
+            y1={CHART_HEIGHT - PADDING}
+            x2={CHART_WIDTH - PADDING}
+            y2={CHART_HEIGHT - PADDING}
             className="axis-line"
           />
           <line
             x1={PADDING}
             y1={PADDING}
             x2={PADDING}
-            y2={CHART_SIZE - PADDING}
+            y2={CHART_HEIGHT - PADDING}
             className="axis-line"
           />
 
@@ -144,15 +146,15 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             <g key={`x-${val}`}>
               <line
                 x1={toPixelX(val)}
-                y1={CHART_SIZE - PADDING}
+                y1={CHART_HEIGHT - PADDING}
                 x2={toPixelX(val)}
-                y2={CHART_SIZE - PADDING + 5}
+                y2={CHART_HEIGHT - PADDING + 5}
                 stroke="#333"
                 strokeWidth={1}
               />
               <text
                 x={toPixelX(val)}
-                y={CHART_SIZE - PADDING + 18}
+                y={CHART_HEIGHT - PADDING + 18}
                 className="tick-label"
                 textAnchor="middle"
               >
@@ -185,8 +187,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
 
           {/* Axis titles */}
           <text
-            x={CHART_SIZE / 2}
-            y={CHART_SIZE - 10}
+            x={CHART_WIDTH / 2}
+            y={CHART_HEIGHT - 10}
             className="axis-title"
             textAnchor="middle"
           >
@@ -194,10 +196,10 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
           </text>
           <text
             x={15}
-            y={CHART_SIZE / 2}
+            y={CHART_HEIGHT / 2}
             className="axis-title"
             textAnchor="middle"
-            transform={`rotate(-90, 15, ${CHART_SIZE / 2})`}
+            transform={`rotate(-90, 15, ${CHART_HEIGHT / 2})`}
           >
             Conditional Growth Percentile
           </text>

@@ -55,11 +55,24 @@ Students may have duplicate rows (multiple teachers, retakes). Per-term logic:
 
 Students appear on chart only if they have BOTH:
 - `testpercentile` (X-axis: Achievement)
-- `falltowinterconditionalgrowthpercentile` (Y-axis: Growth)
+- Growth percentile for selected period (Y-axis: Growth)
 
-Students without fall baseline won't appear.
+Students without baseline test for the selected growth period won't appear.
 
-### 5. Quadrant Colors
+### 5. Dynamic Table Headers
+
+Table headers change based on the selected **growth period**:
+
+| Growth Period | Tier 2 Headers | Column Code |
+|---------------|----------------|-------------|
+| Fall to Winter | Fall 2025 → Winter 2026 | WI 2026 |
+| Winter to Winter | Winter 2025 → Winter 2026 | WI 2026 |
+| Fall to Spring | Fall 2024 → Spring 2025 | SP 2025 |
+| ... | ... | ... |
+
+See `src/utils/termUtils.js` for calculation logic.
+
+### 6. Quadrant Colors
 
 | Quadrant | Achievement | Growth | Color |
 |----------|-------------|--------|-------|

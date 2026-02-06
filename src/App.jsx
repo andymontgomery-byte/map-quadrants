@@ -7,6 +7,7 @@ import DataTable from './components/DataTable';
 import QuadrantLegend from './components/QuadrantLegend';
 import { getUniqueValues } from './utils/csvParser';
 import { filterData, processData, getChartEligibleStudents } from './utils/dataTransforms';
+import { getPriorTermName } from './utils/termUtils';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -34,6 +35,7 @@ function App() {
     termname: '',
     schoolname: '',
     districtname: '',
+    level: '',
     grades: [],
     growthPeriod: '',
   });
@@ -83,11 +85,65 @@ function App() {
     let schools = [];
     let schoolMeta = null;
     if (selection.termname && selection.districtname) {
-      const districtData = metadata.terms[selection.termname]?.districts[selection.districtname];
-      if (districtData) {
-        schools = Object.keys(districtData.schools).sort();
-        if (selection.schoolname) {
-          schoolMeta = districtData.schools[selection.schoolname];
+      const termData = metadata.terms[selection.termname];
+
+      if (selection.districtname === '__all__') {
+        // All districts selected - collect all schools from all districts
+        const allSchools = new Set();
+        const aggregatedMeta = { grades: new Set(), subjects: new Set(), genders: new Set(), ethnicities: new Set(), growthPeriods: new Set(), count: 0 };
+
+        for (const districtData of Object.values(termData.districts)) {
+          for (const [schoolName, schoolData] of Object.entries(districtData.schools)) {
+            allSchools.add(schoolName);
+            if (selection.schoolname === '__all__' || selection.schoolname === schoolName) {
+              schoolData.grades?.forEach(g => aggregatedMeta.grades.add(g));
+              schoolData.subjects?.forEach(s => aggregatedMeta.subjects.add(s));
+              schoolData.genders?.forEach(g => aggregatedMeta.genders.add(g));
+              schoolData.ethnicities?.forEach(e => aggregatedMeta.ethnicities.add(e));
+              schoolData.growthPeriods?.forEach(gp => aggregatedMeta.growthPeriods.add(gp));
+              aggregatedMeta.count += schoolData.count || 0;
+            }
+          }
+        }
+        schools = Array.from(allSchools).sort();
+        if (selection.schoolname === '__all__' || selection.schoolname) {
+          schoolMeta = {
+            grades: Array.from(aggregatedMeta.grades).sort(),
+            subjects: Array.from(aggregatedMeta.subjects).sort(),
+            genders: Array.from(aggregatedMeta.genders).sort(),
+            ethnicities: Array.from(aggregatedMeta.ethnicities).sort(),
+            growthPeriods: Array.from(aggregatedMeta.growthPeriods).sort(),
+            count: aggregatedMeta.count,
+          };
+        }
+      } else {
+        // Specific district selected
+        const districtData = termData?.districts[selection.districtname];
+        if (districtData) {
+          schools = Object.keys(districtData.schools).sort();
+
+          if (selection.schoolname === '__all__') {
+            // All schools in this district
+            const aggregatedMeta = { grades: new Set(), subjects: new Set(), genders: new Set(), ethnicities: new Set(), growthPeriods: new Set(), count: 0 };
+            for (const schoolData of Object.values(districtData.schools)) {
+              schoolData.grades?.forEach(g => aggregatedMeta.grades.add(g));
+              schoolData.subjects?.forEach(s => aggregatedMeta.subjects.add(s));
+              schoolData.genders?.forEach(g => aggregatedMeta.genders.add(g));
+              schoolData.ethnicities?.forEach(e => aggregatedMeta.ethnicities.add(e));
+              schoolData.growthPeriods?.forEach(gp => aggregatedMeta.growthPeriods.add(gp));
+              aggregatedMeta.count += schoolData.count || 0;
+            }
+            schoolMeta = {
+              grades: Array.from(aggregatedMeta.grades).sort(),
+              subjects: Array.from(aggregatedMeta.subjects).sort(),
+              genders: Array.from(aggregatedMeta.genders).sort(),
+              ethnicities: Array.from(aggregatedMeta.ethnicities).sort(),
+              growthPeriods: Array.from(aggregatedMeta.growthPeriods).sort(),
+              count: aggregatedMeta.count,
+            };
+          } else if (selection.schoolname) {
+            schoolMeta = districtData.schools[selection.schoolname];
+          }
         }
       }
     }
@@ -111,12 +167,64 @@ function App() {
     setDataError(null);
 
     try {
-      // Build path to data file
-      const dataPath = `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(selection.districtname)}/${sanitize(selection.schoolname)}.json`;
+      // Determine which files to load based on selection
+      const filesToLoad = [];
+      const termData = metadata?.terms[selection.termname];
 
-      const response = await fetch(dataPath);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const rawData = await response.json();
+      if (selection.districtname === '__all__') {
+        // All districts selected
+        for (const [districtName, districtData] of Object.entries(termData?.districts || {})) {
+          if (selection.schoolname === '__all__') {
+            // All districts + all schools: load everything
+            for (const schoolName of Object.keys(districtData.schools || {})) {
+              filesToLoad.push({
+                path: `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(districtName)}/${sanitize(schoolName)}.json`,
+                district: districtName,
+                school: schoolName,
+              });
+            }
+          } else {
+            // All districts + specific school: only load that school if it exists in this district
+            if (districtData.schools[selection.schoolname]) {
+              filesToLoad.push({
+                path: `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(districtName)}/${sanitize(selection.schoolname)}.json`,
+                district: districtName,
+                school: selection.schoolname,
+              });
+            }
+          }
+        }
+      } else if (selection.schoolname === '__all__') {
+        // Load all schools from selected district
+        const districtData = termData?.districts[selection.districtname];
+        for (const schoolName of Object.keys(districtData?.schools || {})) {
+          filesToLoad.push({
+            path: `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(selection.districtname)}/${sanitize(schoolName)}.json`,
+            district: selection.districtname,
+            school: schoolName,
+          });
+        }
+      } else {
+        // Load single school
+        filesToLoad.push({
+          path: `${BASE_URL}data/${sanitize(selection.termname)}/${sanitize(selection.districtname)}/${sanitize(selection.schoolname)}.json`,
+          district: selection.districtname,
+          school: selection.schoolname,
+        });
+      }
+
+      // Fetch all files in parallel
+      const responses = await Promise.all(
+        filesToLoad.map(async (file) => {
+          const response = await fetch(file.path);
+          if (!response.ok) throw new Error(`HTTP ${response.status} loading ${file.school}`);
+          const data = await response.json();
+          return data;
+        })
+      );
+
+      // Merge all data
+      const rawData = responses.flat();
 
       // Apply grade filter if selected
       let filteredData = rawData;
@@ -126,7 +234,61 @@ function App() {
 
       // Process data with calculations using selected growth period
       const growthPeriod = selection.growthPeriod || 'falltowinter';
-      const processed = processData(filteredData, growthPeriod);
+
+      // Try to load prior term data for start term percentile
+      let priorTermLookup = null;
+      const priorTermName = getPriorTermName(selection.termname, growthPeriod);
+
+      if (priorTermName && metadata?.terms[priorTermName]) {
+        try {
+          // Build list of prior term files to load (same schools)
+          const priorFilesToLoad = [];
+          const priorTermData = metadata.terms[priorTermName];
+
+          for (const file of filesToLoad) {
+            // Check if the school exists in the prior term
+            const districtData = priorTermData?.districts[file.district];
+            if (districtData?.schools[file.school]) {
+              priorFilesToLoad.push({
+                path: `${BASE_URL}data/${sanitize(priorTermName)}/${sanitize(file.district)}/${sanitize(file.school)}.json`,
+                district: file.district,
+                school: file.school,
+              });
+            }
+          }
+
+          if (priorFilesToLoad.length > 0) {
+            const priorResponses = await Promise.all(
+              priorFilesToLoad.map(async (file) => {
+                try {
+                  const response = await fetch(file.path);
+                  if (response.ok) {
+                    return await response.json();
+                  }
+                } catch (e) {
+                  // Silently ignore missing prior term data
+                }
+                return [];
+              })
+            );
+
+            // Build lookup map: studentid|subject -> prior term data
+            const priorData = priorResponses.flat();
+            priorTermLookup = {};
+            for (const row of priorData) {
+              const key = `${row.studentid}|${row.subject}`;
+              // Keep the most recent prior term record per student/subject
+              if (!priorTermLookup[key] || row.teststartdate > priorTermLookup[key].teststartdate) {
+                priorTermLookup[key] = row;
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to load prior term data:', e);
+        }
+      }
+
+      const processed = processData(filteredData, growthPeriod, priorTermLookup);
       setReportData(processed);
 
       // Initialize report filters with all available values
@@ -149,7 +311,7 @@ function App() {
     } finally {
       setDataLoading(false);
     }
-  }, [selection]);
+  }, [selection, metadata]);
 
   // Filter report data based on report-level filters
   const filteredReportData = useMemo(() => {
@@ -205,6 +367,7 @@ function App() {
           selection={selection}
           data={filteredReportData}
           onEditCriteria={handleEditCriteria}
+          growthPeriod={selection.growthPeriod}
         />
 
         <QuadrantLegend />
@@ -228,6 +391,8 @@ function App() {
         <DataTable
           data={filteredReportData}
           showQuadrantColors={reportFilters.showQuadrantColors}
+          termname={selection.termname}
+          growthPeriod={selection.growthPeriod}
         />
       </div>
     </div>

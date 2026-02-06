@@ -68,23 +68,34 @@ export function filterData(data, filters) {
       if (!filters.grades.includes(row.grade)) return false;
     }
 
-    // Subject filter (array)
-    if (filters.subjects && filters.subjects.length > 0) {
-      if (!filters.subjects.includes(row.subject)) return false;
+    // Subject filter (array) - empty array means filter out everything
+    if (Array.isArray(filters.subjects)) {
+      if (filters.subjects.length === 0 || !filters.subjects.includes(row.subject)) return false;
     }
 
-    // Gender filter (array)
-    if (filters.genders && filters.genders.length > 0) {
-      if (!filters.genders.includes(row.studentgender)) return false;
+    // Gender filter (array) - empty array means filter out everything
+    if (Array.isArray(filters.genders)) {
+      if (filters.genders.length === 0 || !filters.genders.includes(row.studentgender)) return false;
     }
 
-    // Ethnicity filter (array)
-    if (filters.ethnicities && filters.ethnicities.length > 0) {
-      if (!filters.ethnicities.includes(row.studentethnicgroup)) return false;
+    // Ethnicity filter (array) - empty array means filter out everything
+    if (Array.isArray(filters.ethnicities)) {
+      if (filters.ethnicities.length === 0 || !filters.ethnicities.includes(row.studentethnicgroup)) return false;
     }
 
     return true;
   });
+}
+
+/**
+ * Safely parse a numeric value, returning null for empty/invalid strings
+ * @param {*} value - Value to parse
+ * @returns {number|null} Parsed number or null
+ */
+function safeParseFloat(value) {
+  if (value === '' || value === null || value === undefined) return null;
+  const parsed = parseFloat(value);
+  return isNaN(parsed) ? null : parsed;
 }
 
 /**
@@ -94,42 +105,51 @@ export function filterData(data, filters) {
  * @returns {Object} Row with calculated values
  */
 export function calculateDerivedValues(row, growthPeriod = 'falltowinter') {
-  const testritscore = parseFloat(row.testritscore) || null;
-  const teststandarderror = parseFloat(row.teststandarderror) || 0;
-  const observedGrowth = parseFloat(row[`${growthPeriod}observedgrowth`]) || 0;
-  const projectedGrowth = parseFloat(row[`${growthPeriod}projectedgrowth`]) || 0;
+  const testritscore = safeParseFloat(row.testritscore);
+  const teststandarderror = safeParseFloat(row.teststandarderror) ?? 0;
 
-  // Calculate Fall RIT (subtract observed growth from winter score)
-  const fallRIT = testritscore !== null ? testritscore - observedGrowth : null;
+  // Get growth values - null if not present (don't default to 0!)
+  const observedGrowthRaw = row[`${growthPeriod}observedgrowth`];
+  const projectedGrowthRaw = row[`${growthPeriod}projectedgrowth`];
+  const observedGrowth = safeParseFloat(observedGrowthRaw);
+  const projectedGrowth = safeParseFloat(projectedGrowthRaw);
 
-  // Calculate Projected RIT (fall + projected growth)
-  const projectedRIT = fallRIT !== null ? fallRIT + projectedGrowth : null;
+  // Determine if growth data exists for this growth period
+  const hasGrowthData = observedGrowth !== null || projectedGrowth !== null;
 
-  // Calculate RIT ranges (±2*SE)
-  const winterRITLow = testritscore !== null ? Math.round((testritscore - 2 * teststandarderror) * 10) / 10 : null;
-  const winterRITHigh = testritscore !== null ? Math.round((testritscore + 2 * teststandarderror) * 10) / 10 : null;
+  // Calculate Start term RIT only if growth data exists (otherwise no prior term test)
+  const startRIT = (hasGrowthData && testritscore !== null && observedGrowth !== null)
+    ? testritscore - observedGrowth
+    : null;
+
+  // Calculate Projected RIT only if growth data exists
+  const projectedRIT = (hasGrowthData && startRIT !== null && projectedGrowth !== null)
+    ? startRIT + projectedGrowth
+    : null;
 
   return {
     ...row,
-    // Achievement Status - Fall
-    fallRIT: fallRIT !== null ? Math.round(fallRIT) : null,
+    // Flag indicating if growth data exists
+    hasGrowthData,
 
-    // Achievement Status - Winter
+    // Achievement Status - Start term (only if growth data exists)
+    fallRIT: startRIT !== null ? Math.round(startRIT) : null,
+
+    // Achievement Status - End term (Winter)
     winterRIT: testritscore !== null ? Math.round(testritscore) : null,
-    winterRITLow,
-    winterRITHigh,
-    winterPercentile: parseFloat(row.testpercentile) || null,
+    winterPercentile: safeParseFloat(row.testpercentile),
+    teststandarderror: teststandarderror,
 
-    // Growth - Student
+    // Growth - Student (null if no growth data, NOT 0)
     projectedRIT: projectedRIT !== null ? Math.round(projectedRIT) : null,
     projectedGrowth: projectedGrowth,
     observedGrowth: observedGrowth,
-    growthSE: parseFloat(row[`${growthPeriod}observedgrowthse`]) || null,
+    growthSE: safeParseFloat(row[`${growthPeriod}observedgrowthse`]),
 
     // Growth - Comparative
     metProjectedGrowth: row[`${growthPeriod}metprojectedgrowth`] || null,
-    conditionalGrowthIndex: parseFloat(row[`${growthPeriod}conditionalgrowthindex`]) || null,
-    conditionalGrowthPercentile: parseFloat(row[`${growthPeriod}conditionalgrowthpercentile`]) || null,
+    conditionalGrowthIndex: safeParseFloat(row[`${growthPeriod}conditionalgrowthindex`]),
+    conditionalGrowthPercentile: safeParseFloat(row[`${growthPeriod}conditionalgrowthpercentile`]),
     growthQuintile: row[`${growthPeriod}growthquintile`] || null,
 
     // Display values
@@ -142,11 +162,27 @@ export function calculateDerivedValues(row, growthPeriod = 'falltowinter') {
  * Process all data with calculations
  * @param {Array} data - Raw CSV data
  * @param {string} growthPeriod - Growth period
+ * @param {Object} priorTermLookup - Optional map of studentid|subject -> prior term data
  * @returns {Array} Processed data
  */
-export function processData(data, growthPeriod = 'falltowinter') {
-  return data.map(row => calculateDerivedValues(row, growthPeriod));
+export function processData(data, growthPeriod = 'falltowinter', priorTermLookup = null) {
+  return data.map(row => {
+    const processed = calculateDerivedValues(row, growthPeriod);
+
+    // Merge prior term percentile if available
+    if (priorTermLookup && processed.hasGrowthData) {
+      const key = `${row.studentid}|${row.subject}`;
+      const priorData = priorTermLookup[key];
+      if (priorData) {
+        processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
+        processed.startTermSE = safeParseFloat(priorData.teststandarderror);
+      }
+    }
+
+    return processed;
+  });
 }
+
 
 /**
  * Get students eligible for chart (have both X and Y axis values)
