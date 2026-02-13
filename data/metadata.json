@@ -5,10 +5,11 @@
         "Virtual 2 Hour Learning": {
           "schools": {
             "Virtual 2 Hour Learning": {
-              "count": 770,
+              "count": 1601,
               "grades": [
                 "1",
                 "10",
+                "11",
                 "12",
                 "2",
                 "3",
@@ -39,7 +40,7 @@
               ]
             },
             "DeepWater Prep": {
-              "count": 9,
+              "count": 16,
               "grades": [
                 "10",
                 "7",
@@ -47,8 +48,10 @@
                 "9"
               ],
               "subjects": [
+                "Language",
                 "Math",
-                "Reading"
+                "Reading",
+                "Science"
               ],
               "genders": [
                 "X"
@@ -61,7 +64,7 @@
               ]
             },
             "Dynamic Prep": {
-              "count": 29,
+              "count": 62,
               "grades": [
                 "5",
                 "6",
@@ -69,8 +72,10 @@
                 "8"
               ],
               "subjects": [
+                "Language",
                 "Math",
-                "Reading"
+                "Reading",
+                "Science"
               ],
               "genders": [
                 "M",
@@ -82,7 +87,7 @@
               "growthPeriods": []
             },
             "Strata": {
-              "count": 12,
+              "count": 31,
               "grades": [
                 "5",
                 "6",
@@ -90,47 +95,10 @@
                 "9"
               ],
               "subjects": [
+                "Language",
                 "Math",
-                "Reading"
-              ],
-              "genders": [
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": []
-            },
-            "TSA Gymnastics - San Antonio": {
-              "count": 10,
-              "grades": [
-                "4",
-                "5"
-              ],
-              "subjects": [
-                "Math",
-                "Reading"
-              ],
-              "genders": [
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": []
-            },
-            "TSA Football - Carrollton": {
-              "count": 8,
-              "grades": [
-                "4",
-                "5",
-                "6",
-                "8"
-              ],
-              "subjects": [
-                "Math",
-                "Reading"
+                "Reading",
+                "Science"
               ],
               "genders": [
                 "M",
@@ -142,7 +110,7 @@
               "growthPeriods": []
             },
             "Modern Samurai Academy": {
-              "count": 24,
+              "count": 25,
               "grades": [
                 "2",
                 "5",
@@ -166,7 +134,7 @@
               ]
             },
             "The Bennett School": {
-              "count": 80,
+              "count": 81,
               "grades": [
                 "10",
                 "7",
@@ -190,13 +158,33 @@
                 "falltowinter"
               ]
             },
-            "AIE Elite Prep": {
-              "count": 17,
+            "TSA Gymnastics - San Antonio": {
+              "count": 20,
               "grades": [
-                "10",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": []
+            },
+            "TSA Football - Carrollton": {
+              "count": 16,
+              "grades": [
+                "4",
+                "5",
                 "6",
-                "7",
-                "9"
+                "8"
               ],
               "subjects": [
                 "Language",
@@ -211,19 +199,19 @@
               "ethnicities": [
                 "Not Specified or Other"
               ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
+              "growthPeriods": []
             },
             "TSA Baseball - Dallas": {
-              "count": 6,
+              "count": 12,
               "grades": [
                 "4",
                 "5"
               ],
               "subjects": [
+                "Language",
                 "Math",
-                "Reading"
+                "Reading",
+                "Science"
               ],
               "genders": [
                 "X"
@@ -232,6 +220,29 @@
                 "Not Specified or Other"
               ],
               "growthPeriods": []
+            },
+            "All American Prep": {
+              "count": 16,
+              "grades": [
+                "5",
+                "7",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
             },
             "Texas Sports Academy Online": {
               "count": 12,
@@ -276,10 +287,11 @@
               ],
               "growthPeriods": []
             },
-            "All American Prep": {
-              "count": 16,
+            "AIE Elite Prep": {
+              "count": 17,
               "grades": [
-                "5",
+                "10",
+                "6",
                 "7",
                 "9"
               ],
@@ -290,6 +302,7 @@
                 "Science"
               ],
               "genders": [
+                "M",
                 "X"
               ],
               "ethnicities": [
@@ -325,7 +338,7 @@
         "Alpha": {
           "schools": {
             "Alpha Austin": {
-              "count": 812,
+              "count": 851,
               "grades": [
                 "1",
                 "10",
@@ -394,7 +407,7 @@
               ]
             },
             "NextGen Academy": {
-              "count": 35,
+              "count": 40,
               "grades": [
                 "2",
                 "3",
@@ -421,7 +434,7 @@
               ]
             },
             "GT School": {
-              "count": 72,
+              "count": 74,
               "grades": [
                 "1",
                 "2",
@@ -452,7 +465,7 @@
               ]
             },
             "Texas Sports Academy": {
-              "count": 107,
+              "count": 116,
               "grades": [
                 "1",
                 "2",
@@ -482,7 +495,7 @@
               ]
             },
             "Alpha Miami": {
-              "count": 234,
+              "count": 239,
               "grades": [
                 "1",
                 "10",
@@ -516,7 +529,7 @@
               ]
             },
             "Alpha Scottsdale": {
-              "count": 102,
+              "count": 106,
               "grades": [
                 "1",
                 "2",
@@ -524,6 +537,196 @@
                 "4",
                 "5",
                 "6",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "Alpha New York City": {
+              "count": 88,
+              "grades": [
+                "1",
+                "10",
+                "2",
+                "3",
+                "4",
+                "7",
+                "8",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "Alpha Fort Worth": {
+              "count": 27,
+              "grades": [
+                "1",
+                "2",
+                "4",
+                "5",
+                "6",
+                "7",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "Alpha Plano": {
+              "count": 18,
+              "grades": [
+                "1",
+                "3",
+                "4",
+                "K",
+                "PK"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "Alpha Chantilly": {
+              "count": 16,
+              "grades": [
+                "2",
+                "3",
+                "6"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M",
+                "X"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": []
+            },
+            "Alpha Santa Barbara": {
+              "count": 47,
+              "grades": [
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "GT Anywhere": {
+              "count": 9,
+              "grades": [
+                "2",
+                "3",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter",
+                "wintertowinter"
+              ]
+            },
+            "Alpha San Francisco": {
+              "count": 59,
+              "grades": [
+                "1",
+                "11",
+                "2",
+                "3",
+                "4",
+                "6",
+                "7",
                 "8",
                 "K"
               ],
@@ -571,17 +774,10 @@
                 "falltowinter"
               ]
             },
-            "Alpha New York City": {
-              "count": 79,
+            "Waypoint Academy": {
+              "count": 4,
               "grades": [
-                "1",
-                "10",
-                "2",
-                "3",
-                "4",
-                "7",
-                "8",
-                "K"
+                "2"
               ],
               "subjects": [
                 "Language",
@@ -590,149 +786,18 @@
                 "Science"
               ],
               "genders": [
-                "F",
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
-            },
-            "Alpha Fort Worth": {
-              "count": 25,
-              "grades": [
-                "1",
-                "2",
-                "4",
-                "5",
-                "6",
-                "7",
-                "K"
-              ],
-              "subjects": [
-                "Language",
-                "Math",
-                "Reading",
-                "Science"
-              ],
-              "genders": [
-                "F",
                 "M"
               ],
               "ethnicities": [
                 "Not Specified or Other"
               ],
               "growthPeriods": [
-                "falltowinter"
-              ]
-            },
-            "Alpha Plano": {
-              "count": 7,
-              "grades": [
-                "1",
-                "3",
-                "4",
-                "K",
-                "PK"
-              ],
-              "subjects": [
-                "Math"
-              ],
-              "genders": [
-                "F",
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
-            },
-            "Alpha Lake Forest": {
-              "count": 32,
-              "grades": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "K"
-              ],
-              "subjects": [
-                "Language",
-                "Math",
-                "Reading",
-                "Science"
-              ],
-              "genders": [
-                "F",
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
-            },
-            "Alpha Chantilly": {
-              "count": 3,
-              "grades": [
-                "2",
-                "6"
-              ],
-              "subjects": [
-                "Math"
-              ],
-              "genders": [
-                "F",
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": []
-            },
-            "Alpha San Francisco": {
-              "count": 57,
-              "grades": [
-                "1",
-                "11",
-                "2",
-                "3",
-                "5",
-                "6",
-                "7",
-                "8",
-                "K"
-              ],
-              "subjects": [
-                "Language",
-                "Math",
-                "Reading",
-                "Science"
-              ],
-              "genders": [
-                "F",
-                "M",
-                "X"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter"
+                "falltowinter",
+                "wintertowinter"
               ]
             },
             "Montessorium Cedar Park": {
-              "count": 42,
+              "count": 44,
               "grades": [
                 "1",
                 "2",
@@ -758,15 +823,15 @@
                 "falltowinter"
               ]
             },
-            "Alpha Santa Barbara": {
-              "count": 43,
+            "Alpha Lake Forest": {
+              "count": 33,
               "grades": [
+                "1",
+                "2",
+                "3",
                 "4",
                 "5",
-                "6",
-                "7",
-                "8",
-                "9"
+                "K"
               ],
               "subjects": [
                 "Language",
@@ -775,7 +840,9 @@
                 "Science"
               ],
               "genders": [
-                "M"
+                "F",
+                "M",
+                "X"
               ],
               "ethnicities": [
                 "Not Specified or Other"
@@ -783,34 +850,13 @@
               "growthPeriods": [
                 "falltowinter"
               ]
-            },
-            "Waypoint Academy": {
-              "count": 3,
-              "grades": [
-                "2"
-              ],
-              "subjects": [
-                "Math",
-                "Reading",
-                "Science"
-              ],
-              "genders": [
-                "M"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter",
-                "wintertowinter"
-              ]
             }
           }
         },
         "Nova Academy Austin": {
           "schools": {
             "Nova Academy Austin": {
-              "count": 35,
+              "count": 38,
               "grades": [
                 "2",
                 "3",
@@ -838,7 +884,7 @@
               ]
             },
             "Nova Academy Bastrop": {
-              "count": 46,
+              "count": 50,
               "grades": [
                 "1",
                 "2",
@@ -869,7 +915,7 @@
         "Unbound Academy": {
           "schools": {
             "Unbound Academy": {
-              "count": 578,
+              "count": 657,
               "grades": [
                 "4",
                 "5",
@@ -898,39 +944,16 @@
         },
         "Studient": {
           "schools": {
-            "LFG Academy": {
-              "count": 32,
+            "JRES - Ridgeland Elementary School": {
+              "count": 392,
               "grades": [
+                "2",
                 "3",
                 "4",
-                "5",
-                "6"
+                "5"
               ],
               "subjects": [
                 "Language",
-                "Math",
-                "Reading",
-                "Science"
-              ],
-              "genders": [
-                "F",
-                "M"
-              ],
-              "ethnicities": [
-                "Not Specified or Other"
-              ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
-            },
-            "Immaculate Academy": {
-              "count": 10,
-              "grades": [
-                "2",
-                "6",
-                "K"
-              ],
-              "subjects": [
                 "Reading"
               ],
               "genders": [
@@ -940,12 +963,29 @@
               "ethnicities": [
                 "Not Specified or Other"
               ],
-              "growthPeriods": [
-                "falltowinter"
-              ]
+              "growthPeriods": []
+            },
+            "JRHS - Ridgeland Secondary Academy of Excellence": {
+              "count": 31,
+              "grades": [
+                "6",
+                "7",
+                "8"
+              ],
+              "subjects": [
+                "Language"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": []
             },
             "Oregon Trail School District 46": {
-              "count": 230,
+              "count": 239,
               "grades": [
                 "3",
                 "5",
@@ -971,8 +1011,56 @@
                 "falltowinter"
               ]
             },
+            "Immaculate Academy": {
+              "count": 30,
+              "grades": [
+                "2",
+                "6",
+                "K"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "Living Water Elementary": {
+              "count": 56,
+              "grades": [
+                "3",
+                "4",
+                "5"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
             "SPIRE Academy": {
-              "count": 350,
+              "count": 354,
               "grades": [
                 "10",
                 "11",
@@ -1001,6 +1089,31 @@
                 "6",
                 "7",
                 "8"
+              ],
+              "subjects": [
+                "Language",
+                "Math",
+                "Reading",
+                "Science"
+              ],
+              "genders": [
+                "F",
+                "M"
+              ],
+              "ethnicities": [
+                "Not Specified or Other"
+              ],
+              "growthPeriods": [
+                "falltowinter"
+              ]
+            },
+            "LFG Academy": {
+              "count": 32,
+              "grades": [
+                "3",
+                "4",
+                "5",
+                "6"
               ],
               "subjects": [
                 "Language",
@@ -1064,18 +1177,15 @@
                 "falltowinter"
               ]
             },
-            "Living Water Elementary": {
-              "count": 55,
+            "One Hope Academy": {
+              "count": 10,
               "grades": [
                 "3",
-                "4",
-                "5"
+                "K"
               ],
               "subjects": [
-                "Language",
                 "Math",
-                "Reading",
-                "Science"
+                "Reading"
               ],
               "genders": [
                 "F",
@@ -1087,16 +1197,28 @@
               "growthPeriods": [
                 "falltowinter"
               ]
-            },
-            "One Hope Academy": {
-              "count": 10,
+            }
+          }
+        },
+        "Novatio School": {
+          "schools": {
+            "Novatio": {
+              "count": 264,
               "grades": [
+                "1",
+                "2",
                 "3",
-                "K"
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
               ],
               "subjects": [
+                "Language",
                 "Math",
-                "Reading"
+                "Reading",
+                "Science"
               ],
               "genders": [
                 "F",
