@@ -164,7 +164,8 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             50
           </text>
 
-          {/* Axes */}
+          {/* Axes — box frame */}
+          {/* Bottom */}
           <line
             x1={PADDING}
             y1={CHART_HEIGHT - PADDING}
@@ -172,11 +173,20 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             y2={CHART_HEIGHT - PADDING}
             className="axis-line"
           />
+          {/* Left */}
           <line
             x1={PADDING}
             y1={PADDING}
             x2={PADDING}
             y2={CHART_HEIGHT - PADDING}
+            className="axis-line"
+          />
+          {/* Top */}
+          <line
+            x1={PADDING}
+            y1={PADDING}
+            x2={CHART_WIDTH - PADDING}
+            y2={PADDING}
             className="axis-line"
           />
 
@@ -202,7 +212,7 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             </g>
           ))}
 
-          {/* Y-axis ticks and labels */}
+          {/* Y-axis ticks and labels (left) */}
           {ticks.map(val => (
             <g key={`y-${val}`}>
               <line
@@ -218,6 +228,35 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
                 y={toPixelY(val) + 4}
                 className="tick-label"
                 textAnchor="end"
+              >
+                {val}
+              </text>
+            </g>
+          ))}
+
+          {/* Right-side Y-axis line and ticks */}
+          <line
+            x1={CHART_WIDTH - PADDING}
+            y1={PADDING}
+            x2={CHART_WIDTH - PADDING}
+            y2={CHART_HEIGHT - PADDING}
+            className="axis-line"
+          />
+          {ticks.map(val => (
+            <g key={`yr-${val}`}>
+              <line
+                x1={CHART_WIDTH - PADDING}
+                y1={toPixelY(val)}
+                x2={CHART_WIDTH - PADDING + 5}
+                y2={toPixelY(val)}
+                stroke="#333"
+                strokeWidth={1}
+              />
+              <text
+                x={CHART_WIDTH - PADDING + 10}
+                y={toPixelY(val) + 4}
+                className="tick-label"
+                textAnchor="start"
               >
                 {val}
               </text>
