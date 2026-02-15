@@ -409,14 +409,14 @@ body {
 }
 
 .header-tier-1 th {
-  background-color: var(--header-bg);
+  background-color: #3b7b8a;
   color: var(--header-text);
   font-weight: 600;
   text-align: center;
 }
 
 .header-tier-2 th {
-  background-color: #004488;
+  background-color: #5a9aad;
   color: var(--header-text);
   font-weight: 500;
   text-align: center;

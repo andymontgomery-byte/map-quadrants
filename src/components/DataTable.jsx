@@ -112,11 +112,17 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
     return `${parseInt(parts[1])}/${parseInt(parts[2])}/${parts[0].slice(2)}`;
   };
 
-  // Format Met Projected Growth
+  // Format Met Projected Growth — show † for asterisked values (matches NWEA dagger)
   const formatMetGrowth = (value) => {
     if (!value) return '—';
     const isYes = value.toLowerCase().startsWith('yes');
-    return <span className={isYes ? 'met-yes' : 'met-no'}>{isYes ? 'Yes' : 'No'}</span>;
+    const hasDagger = value.includes('*');
+    const label = isYes ? 'Yes' : 'No';
+    return (
+      <span className={isYes ? 'met-yes' : 'met-no'}>
+        {label}{hasDagger && <sup>†</sup>}
+      </span>
+    );
   };
 
   const SortIcon = ({ columnKey }) => {
