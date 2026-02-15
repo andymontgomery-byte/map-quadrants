@@ -51,14 +51,14 @@ function ReportHeader({ selection, data, onEditCriteria, growthPeriod }) {
 
   const growthPeriodDisplay = useMemo(() => {
     if (!termLabels.startLabel || !termLabels.endLabel) return '—';
-    return `${termLabels.startLabel}- ${termLabels.endLabel}`;
+    return `${termLabels.startLabel} - ${termLabels.endLabel}`;
   }, [termLabels]);
 
   // Format weeks of instruction like NWEA: "Start - 1(Fall 2025) End - 20(Winter 2026)"
   const weeksDisplay = useMemo(() => {
     const startLabel = termLabels.startLabel || 'Start';
     const endLabel = termLabels.endLabel || 'End';
-    return `Start - ${weeksOfInstruction.fall}(${startLabel})\nEnd - ${weeksOfInstruction.winter}(${endLabel})`;
+    return `Start - ${weeksOfInstruction.fall} (${startLabel})\nEnd - ${weeksOfInstruction.winter} (${endLabel})`;
   }, [weeksOfInstruction, termLabels]);
 
   return (
@@ -95,6 +95,10 @@ function ReportHeader({ selection, data, onEditCriteria, growthPeriod }) {
             <span className="criteria-value">
               {selection.schoolname === '__all__' ? 'All Schools' : (selection.schoolname || '—')}
             </span>
+          </div>
+          <div className="criteria-row">
+            <span className="criteria-label">Instructor:</span>
+            <span className="criteria-value">[Instructor Name]</span>
           </div>
         </div>
 
