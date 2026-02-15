@@ -78,6 +78,13 @@ async function main() {
 
   console.log(`Parsed ${rows.length} rows`);
 
+  // Filter out shadow/test students (lastName starts with "Shadow")
+  const filtered = rows.filter(r => !r.studentlastname?.startsWith('Shadow'));
+  const shadowCount = rows.length - filtered.length;
+  if (shadowCount > 0) {
+    console.log(`Filtered ${shadowCount} shadow student rows`);
+  }
+
   // Build hierarchical metadata structure
   // metadata.terms[term].districts[district].schools[school] = { grades, subjects, count }
   const metadata = {
@@ -87,7 +94,7 @@ async function main() {
   // Group rows by term → district → school
   const hierarchy = {};
 
-  for (const row of rows) {
+  for (const row of filtered) {
     const term = row.termname;
     const district = row.districtname;
     const school = row.schoolname;
