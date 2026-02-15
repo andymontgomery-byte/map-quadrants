@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:data": "node scripts/build-data.js",
+    "build:norms": "node scripts/convert-norms.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "playwright test",

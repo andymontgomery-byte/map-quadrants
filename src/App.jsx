@@ -7,7 +7,7 @@ import DataTable from './components/DataTable';
 import QuadrantLegend from './components/QuadrantLegend';
 import { getUniqueValues } from './utils/csvParser';
 import { filterData, processData, getChartEligibleStudents } from './utils/dataTransforms';
-import { getPriorTermName } from './utils/termUtils';
+import { getPriorTermName, getTermLabels } from './utils/termUtils';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -288,7 +288,8 @@ function App() {
         }
       }
 
-      const processed = processData(filteredData, growthPeriod, priorTermLookup);
+      const { startSeason } = getTermLabels(selection.termname, growthPeriod);
+      const processed = processData(filteredData, growthPeriod, priorTermLookup, startSeason);
       setReportData(processed);
 
       // Initialize report filters with all available values

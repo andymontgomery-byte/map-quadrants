@@ -80,11 +80,18 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
     );
   };
 
-  // Format percentile - just show the bold value
-  // NWEA's range requires norm tables we don't have, so we only show the percentile
-  const formatPercentileRange = (percentile, se, hasData = true) => {
+  // Format percentile as low-mid-high range (matching NWEA format)
+  const formatPercentileRange = (percentile, low, high, hasData = true) => {
     if (!hasData) return '***';
     if (percentile == null) return '—';
+
+    if (low != null && high != null) {
+      return (
+        <span>
+          {low}-<strong>{Math.round(percentile)}</strong>-{high}
+        </span>
+      );
+    }
 
     return <strong>{Math.round(percentile)}</strong>;
   };
@@ -226,11 +233,11 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
 
                   {/* Start term (Fall/previous) Achievement - show *** if no growth data */}
                   <td className="numeric">{formatRITRange(student.fallRIT, student.teststandarderror, student.hasGrowthData)}</td>
-                  <td className="numeric">{formatPercentileRange(student.startTermPercentile, student.startTermSE, student.hasGrowthData)}</td>
+                  <td className="numeric">{formatPercentileRange(student.startTermPercentile, student.startTermPercentileLow, student.startTermPercentileHigh, student.hasGrowthData)}</td>
 
                   {/* End term (Winter) Achievement */}
                   <td className="numeric">{formatRITRange(student.winterRIT, student.teststandarderror)}</td>
-                  <td className="numeric">{formatPercentileRange(student.winterPercentile, student.teststandarderror)}</td>
+                  <td className="numeric">{formatPercentileRange(student.winterPercentile, null, null)}</td>
 
                   {/* Growth - Student (show — if null, not "0") */}
                   <td className="numeric">{student.projectedRIT ?? '—'}</td>

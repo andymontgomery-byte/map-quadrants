@@ -1,3 +1,5 @@
+import { lookupPercentile } from './normsLookup.js';
+
 /**
  * Deduplicate data based on growthmeasureyn or highest RIT score
  * Processes per-term to handle mixed historical/current data
@@ -99,6 +101,19 @@ function safeParseFloat(value) {
 }
 
 /**
+ * Derive the start-term grade for year-over-year growth periods.
+ * Students promote one grade between start and end terms.
+ * @param {string} currentGrade - Current grade (e.g., "5", "K", "1")
+ * @returns {string} Prior grade (e.g., "4", "K", "K")
+ */
+function deriveStartGrade(currentGrade) {
+  const num = parseInt(currentGrade, 10);
+  if (!isNaN(num) && num > 0) return String(num - 1);
+  // Grade K or 0 — can't go lower
+  return currentGrade;
+}
+
+/**
  * Calculate derived values for a student row
  * @param {Object} row - Raw student data row
  * @param {string} growthPeriod - Growth period prefix (e.g., 'falltowinter')
@@ -163,19 +178,52 @@ export function calculateDerivedValues(row, growthPeriod = 'falltowinter') {
  * @param {Array} data - Raw CSV data
  * @param {string} growthPeriod - Growth period
  * @param {Object} priorTermLookup - Optional map of studentid|subject -> prior term data
+ * @param {string} startSeason - Start season name (e.g., "Fall", "Winter") for norms lookup
  * @returns {Array} Processed data
  */
-export function processData(data, growthPeriod = 'falltowinter', priorTermLookup = null) {
+export function processData(data, growthPeriod = 'falltowinter', priorTermLookup = null, startSeason = null) {
   return data.map(row => {
     const processed = calculateDerivedValues(row, growthPeriod);
 
-    // Merge prior term percentile if available
+    // Get prior term SE from prior term lookup (still needed for range display)
     if (priorTermLookup && processed.hasGrowthData) {
       const key = `${row.studentid}|${row.subject}`;
       const priorData = priorTermLookup[key];
       if (priorData) {
-        processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
         processed.startTermSE = safeParseFloat(priorData.teststandarderror);
+      }
+    }
+
+    // Derive startTermPercentile
+    // Year-over-year periods (W2W, F2F, S2S): use 2025 norms lookup because
+    // the prior CSV percentile was scored with older norms at a different grade
+    // Same-year periods (F2W, F2S, W2S): use prior CSV percentile directly
+    // since it was already scored with current norms at test time
+    const isYearOverYear = ['wintertowinter', 'falltofall', 'springtospring'].includes(growthPeriod);
+
+    if (isYearOverYear && processed.hasGrowthData && processed.fallRIT != null && startSeason) {
+      const startRIT = processed.fallRIT;
+      const startGrade = deriveStartGrade(row.grade);
+      const normsPercentile = lookupPercentile(row.subject, startSeason, startGrade, startRIT);
+      if (normsPercentile != null) {
+        processed.startTermPercentile = normsPercentile;
+        const se = processed.startTermSE || 0;
+        if (se > 0) {
+          processed.startTermPercentileLow = lookupPercentile(row.subject, startSeason, startGrade, startRIT - se);
+          processed.startTermPercentileHigh = lookupPercentile(row.subject, startSeason, startGrade, startRIT + se);
+        }
+      } else if (priorTermLookup) {
+        const key = `${row.studentid}|${row.subject}`;
+        const priorData = priorTermLookup[key];
+        if (priorData) {
+          processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
+        }
+      }
+    } else if (priorTermLookup && processed.hasGrowthData) {
+      const key = `${row.studentid}|${row.subject}`;
+      const priorData = priorTermLookup[key];
+      if (priorData) {
+        processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
       }
     }
 
