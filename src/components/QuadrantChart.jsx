@@ -7,7 +7,9 @@ const PADDING = 60;
 const CHART_AREA_X = CHART_WIDTH - 2 * PADDING;
 const CHART_AREA_Y = CHART_HEIGHT - 2 * PADDING;
 
-function QuadrantChart({ data, showNames, showQuadrantColors }) {
+function QuadrantChart({ data, showNames, showQuadrantColors, thresholds, onThresholdsChange }) {
+  const achievementThreshold = thresholds?.achievement ?? 50;
+  const growthThreshold = thresholds?.growth ?? 50;
   // Convert percentile to pixel coordinate
   const toPixelX = (percentile) => PADDING + (percentile / 100) * CHART_AREA_X;
   const toPixelY = (percentile) => PADDING + ((100 - percentile) / 100) * CHART_AREA_Y; // Invert Y
@@ -41,26 +43,45 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
 
   return (
     <div className="quadrant-chart">
-      <div className="chart-svg-container">
-        <svg viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`} className="chart-svg">
+      <div className="chart-layout">
+        {/* Y-axis label with threshold input */}
+        <div className="y-axis-label">
+          <span>Conditional<br />Growth<br />Percentile</span>
+          <input
+            type="number"
+            className="threshold-input"
+            value={growthThreshold}
+            min={1}
+            max={99}
+            onChange={(e) => {
+              const val = parseInt(e.target.value, 10);
+              if (!isNaN(val) && val >= 1 && val <= 99) {
+                onThresholdsChange?.({ ...thresholds, growth: val });
+              }
+            }}
+          />
+        </div>
+
+        <div className="chart-svg-container">
+          <svg viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`} className="chart-svg">
           {/* Quadrant backgrounds */}
           {showQuadrantColors && (
             <g className="quadrant-backgrounds">
               {/* Bottom-left: Low Achievement / Low Growth */}
               <rect
                 x={PADDING}
-                y={toPixelY(50)}
-                width={CHART_AREA_X / 2}
-                height={CHART_AREA_Y / 2}
+                y={toPixelY(growthThreshold)}
+                width={toPixelX(achievementThreshold) - PADDING}
+                height={CHART_HEIGHT - PADDING - toPixelY(growthThreshold)}
                 fill={QUADRANT_COLORS.lowLow}
                 className="quadrant-bg"
               />
               {/* Bottom-right: High Achievement / Low Growth */}
               <rect
-                x={toPixelX(50)}
-                y={toPixelY(50)}
-                width={CHART_AREA_X / 2}
-                height={CHART_AREA_Y / 2}
+                x={toPixelX(achievementThreshold)}
+                y={toPixelY(growthThreshold)}
+                width={CHART_WIDTH - PADDING - toPixelX(achievementThreshold)}
+                height={CHART_HEIGHT - PADDING - toPixelY(growthThreshold)}
                 fill={QUADRANT_COLORS.highLow}
                 className="quadrant-bg"
               />
@@ -68,17 +89,17 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               <rect
                 x={PADDING}
                 y={PADDING}
-                width={CHART_AREA_X / 2}
-                height={CHART_AREA_Y / 2}
+                width={toPixelX(achievementThreshold) - PADDING}
+                height={toPixelY(growthThreshold) - PADDING}
                 fill={QUADRANT_COLORS.lowHigh}
                 className="quadrant-bg"
               />
               {/* Top-right: High Achievement / High Growth */}
               <rect
-                x={toPixelX(50)}
+                x={toPixelX(achievementThreshold)}
                 y={PADDING}
-                width={CHART_AREA_X / 2}
-                height={CHART_AREA_Y / 2}
+                width={CHART_WIDTH - PADDING - toPixelX(achievementThreshold)}
+                height={toPixelY(growthThreshold) - PADDING}
                 fill={QUADRANT_COLORS.highHigh}
                 className="quadrant-bg"
               />
@@ -109,61 +130,21 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             ))}
           </g>
 
-          {/* Center lines (50%) - dashed */}
+          {/* Threshold divider lines - dashed */}
           <line
-            x1={toPixelX(50)}
+            x1={toPixelX(achievementThreshold)}
             y1={PADDING}
-            x2={toPixelX(50)}
+            x2={toPixelX(achievementThreshold)}
             y2={CHART_HEIGHT - PADDING}
             className="center-line"
           />
           <line
             x1={PADDING}
-            y1={toPixelY(50)}
+            y1={toPixelY(growthThreshold)}
             x2={CHART_WIDTH - PADDING}
-            y2={toPixelY(50)}
+            y2={toPixelY(growthThreshold)}
             className="center-line"
           />
-
-          {/* Threshold "50" indicators on axes */}
-          {/* X-axis threshold */}
-          <rect
-            x={toPixelX(50) - 12}
-            y={CHART_HEIGHT - PADDING + 22}
-            width={24}
-            height={16}
-            fill="#fff"
-            stroke="#999"
-            strokeWidth={1}
-            rx={2}
-          />
-          <text
-            x={toPixelX(50)}
-            y={CHART_HEIGHT - PADDING + 34}
-            className="threshold-label"
-            textAnchor="middle"
-          >
-            50
-          </text>
-          {/* Y-axis threshold */}
-          <rect
-            x={PADDING - 34}
-            y={toPixelY(50) - 8}
-            width={24}
-            height={16}
-            fill="#fff"
-            stroke="#999"
-            strokeWidth={1}
-            rx={2}
-          />
-          <text
-            x={PADDING - 22}
-            y={toPixelY(50) + 4}
-            className="threshold-label"
-            textAnchor="middle"
-          >
-            50
-          </text>
 
           {/* Axes — box frame */}
           {/* Bottom */}
@@ -264,24 +245,7 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             </g>
           ))}
 
-          {/* Axis titles */}
-          <text
-            x={CHART_WIDTH / 2}
-            y={CHART_HEIGHT - 10}
-            className="axis-title"
-            textAnchor="middle"
-          >
-            Achievement Percentile
-          </text>
-          <text
-            x={15}
-            y={CHART_HEIGHT / 2}
-            className="axis-title"
-            textAnchor="middle"
-            transform={`rotate(-90, 15, ${CHART_HEIGHT / 2})`}
-          >
-            Conditional Growth Percentile
-          </text>
+          {/* Axis titles removed — replaced by HTML labels below */}
 
           {/* Data points — shape markers matching NWEA ASG report */}
           <g className="data-points">
@@ -315,7 +279,26 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
               </g>
             ))}
           </g>
-        </svg>
+          </svg>
+
+          {/* X-axis label with threshold input */}
+          <div className="x-axis-label">
+            <span>Achievement Percentile</span>
+            <input
+              type="number"
+              className="threshold-input"
+              value={achievementThreshold}
+              min={1}
+              max={99}
+              onChange={(e) => {
+                const val = parseInt(e.target.value, 10);
+                if (!isNaN(val) && val >= 1 && val <= 99) {
+                  onThresholdsChange?.({ ...thresholds, achievement: val });
+                }
+              }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -48,6 +48,7 @@ function App() {
     showQuadrantColors: true,
     pointShapeBy: 'subject',
   });
+  const [thresholds, setThresholds] = useState({ achievement: 50, growth: 50 });
 
   // Load metadata on mount
   useEffect(() => {
@@ -376,6 +377,8 @@ function App() {
               data={chartData}
               showNames={reportFilters.showNames}
               showQuadrantColors={reportFilters.showQuadrantColors}
+              thresholds={thresholds}
+              onThresholdsChange={setThresholds}
             />
           </div>
 
