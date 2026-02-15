@@ -147,8 +147,8 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
 
           {/* Tier 3 - Column Headers */}
           <tr className="header-tier-3">
-            <th>Quadrant</th>
-            <th onClick={() => handleSort('studentName')}>
+            <th className="col-quadrant">Quadrant</th>
+            <th className="col-student" onClick={() => handleSort('studentName')}>
               Student Name<br />Student ID <SortIcon columnKey="studentName" />
             </th>
             <th onClick={() => handleSort('grade')}>
@@ -184,7 +184,7 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
             <th onClick={() => handleSort('conditionalGrowthIndex')} className="numeric">
               Growth<br />Index <SortIcon columnKey="conditionalGrowthIndex" />
             </th>
-            <th onClick={() => handleSort('metProjectedGrowth')}>
+            <th className="col-met-growth" onClick={() => handleSort('metProjectedGrowth')}>
               Met<br />Projected<br />Growth <SortIcon columnKey="metProjectedGrowth" />
             </th>
             <th className="numeric">
@@ -220,7 +220,7 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
                   className={getRowClass(student)}
                 >
                   {/* Quadrant color box */}
-                  <td>
+                  <td className="col-quadrant">
                     <div
                       className="quadrant-box"
                       style={{ backgroundColor: getQuadrantColorForStudent(student) }}

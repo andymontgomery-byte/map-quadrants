@@ -2,10 +2,10 @@
  * Quadrant colors and definitions
  */
 export const QUADRANT_COLORS = {
-  highHigh: '#b7dcbe',    // High Achievement / High Growth - Green (top-right)
-  lowHigh: '#fae3b3',     // Low Achievement / High Growth - Yellow/Tan (top-left)
-  lowLow: '#f8d7d5',      // Low Achievement / Low Growth - Pink/Salmon (bottom-left)
-  highLow: '#fefbcc',     // High Achievement / Low Growth - Pale Yellow (bottom-right)
+  highHigh: '#d4ead8',    // High Achievement / High Growth - Light Green (top-right)
+  lowHigh: '#fef0d5',     // Low Achievement / High Growth - Light Yellow/Tan (top-left)
+  lowLow: '#fce8e7',      // Low Achievement / Low Growth - Light Pink (bottom-left)
+  highLow: '#fefde6',     // High Achievement / Low Growth - Very Pale Yellow (bottom-right)
 };
 
 export const QUADRANT_LABELS = {
