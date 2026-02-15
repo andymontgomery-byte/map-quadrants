@@ -16,21 +16,10 @@ function ChartFilters({ options, filters, onFiltersChange }) {
     onFiltersChange(prev => ({ ...prev, [field]: value }));
   }, [onFiltersChange]);
 
-  const handleSelectAll = useCallback((category, allValues) => {
-    onFiltersChange(prev => ({
-      ...prev,
-      [category]: prev[category]?.length === allValues.length ? [] : [...allValues]
-    }));
-  }, [onFiltersChange]);
-
   return (
     <div className="chart-filters">
-      <div className="filter-panel-title">Chart Options</div>
-
       {/* Display Options */}
       <div className="filter-section">
-        <div className="filter-section-title">Display</div>
-
         <div className="filter-checkbox">
           <input
             type="checkbox"
@@ -54,15 +43,7 @@ function ChartFilters({ options, filters, onFiltersChange }) {
 
       {/* Subject Filter */}
       <div className="filter-section">
-        <div className="filter-section-title">
-          Subject
-          <button
-            style={{ marginLeft: 10, fontSize: 11, cursor: 'pointer' }}
-            onClick={() => handleSelectAll('subjects', options.subjects || [])}
-          >
-            {filters.subjects?.length === options.subjects?.length ? 'Deselect All' : 'Select All'}
-          </button>
-        </div>
+        <div className="filter-section-title">Subjects and Courses shown</div>
 
         {(options.subjects || []).map(subject => (
           <div key={subject} className="filter-checkbox">
@@ -83,15 +64,7 @@ function ChartFilters({ options, filters, onFiltersChange }) {
 
       {/* Gender Filter */}
       <div className="filter-section">
-        <div className="filter-section-title">
-          Gender
-          <button
-            style={{ marginLeft: 10, fontSize: 11, cursor: 'pointer' }}
-            onClick={() => handleSelectAll('genders', options.genders || [])}
-          >
-            {filters.genders?.length === options.genders?.length ? 'Deselect All' : 'Select All'}
-          </button>
-        </div>
+        <div className="filter-section-title">Genders shown</div>
 
         {(options.genders || []).map(gender => (
           <div key={gender} className="filter-checkbox">
@@ -110,15 +83,7 @@ function ChartFilters({ options, filters, onFiltersChange }) {
 
       {/* Ethnicity Filter */}
       <div className="filter-section">
-        <div className="filter-section-title">
-          Ethnicity
-          <button
-            style={{ marginLeft: 10, fontSize: 11, cursor: 'pointer' }}
-            onClick={() => handleSelectAll('ethnicities', options.ethnicities || [])}
-          >
-            {filters.ethnicities?.length === options.ethnicities?.length ? 'Deselect All' : 'Select All'}
-          </button>
-        </div>
+        <div className="filter-section-title">Ethnicities shown</div>
 
         {(options.ethnicities || []).map(ethnicity => (
           <div key={ethnicity} className="filter-checkbox">
@@ -128,14 +93,14 @@ function ChartFilters({ options, filters, onFiltersChange }) {
               checked={filters.ethnicities?.includes(ethnicity) || false}
               onChange={() => handleCheckboxToggle('ethnicities', ethnicity)}
             />
-            <label htmlFor={`ethnicity-${ethnicity}`}>{ethnicity || 'Not Specified'}</label>
+            <label htmlFor={`ethnicity-${ethnicity}`}>{ethnicity || 'Not Specified or Other'}</label>
           </div>
         ))}
       </div>
 
       {/* Point Shape By */}
       <div className="filter-section">
-        <div className="filter-section-title">Point Shape By</div>
+        <div className="filter-section-title">Point shape by:</div>
 
         <div className="filter-radio">
           <input
@@ -159,6 +124,18 @@ function ChartFilters({ options, filters, onFiltersChange }) {
             onChange={(e) => handleToggleChange('pointShapeBy', e.target.value)}
           />
           <label htmlFor="shape-gender">Gender</label>
+        </div>
+
+        <div className="filter-radio">
+          <input
+            type="radio"
+            id="shape-ethnicity"
+            name="pointShapeBy"
+            value="ethnicity"
+            checked={filters.pointShapeBy === 'ethnicity'}
+            onChange={(e) => handleToggleChange('pointShapeBy', e.target.value)}
+          />
+          <label htmlFor="shape-ethnicity">Ethnicity</label>
         </div>
       </div>
     </div>

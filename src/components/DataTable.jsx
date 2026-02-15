@@ -15,10 +15,18 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
   // Group data by course/subject
   const groupedData = useMemo(() => groupBySubject(data), [data]);
 
-  // Sort data within each group
+  // NWEA subject display order
+  const SUBJECT_ORDER = ['Mathematics', 'Math K-12', 'Math', 'Reading', 'Language Usage', 'Language Arts', 'Science', 'Science K-12', 'General Science'];
+
+  // Sort data within each group, with groups ordered to match NWEA
   const sortedGroupedData = useMemo(() => {
     const sorted = {};
-    for (const [group, rows] of Object.entries(groupedData)) {
+    const entries = Object.entries(groupedData).sort(([a], [b]) => {
+      const ai = SUBJECT_ORDER.findIndex(s => s === a);
+      const bi = SUBJECT_ORDER.findIndex(s => s === b);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
+    for (const [group, rows] of entries) {
       sorted[group] = [...rows].sort((a, b) => {
         let aVal = a[sortConfig.key];
         let bVal = b[sortConfig.key];
@@ -232,12 +240,12 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
                   <td>{formatDate(student.teststartdate)}</td>
 
                   {/* Start term (Fall/previous) Achievement - show *** if no growth data */}
-                  <td className="numeric">{formatRITRange(student.fallRIT, student.teststandarderror, student.hasGrowthData)}</td>
+                  <td className="numeric">{formatRITRange(student.fallRIT, student.startTermSE || student.teststandarderror, student.hasGrowthData)}</td>
                   <td className="numeric">{formatPercentileRange(student.startTermPercentile, student.startTermPercentileLow, student.startTermPercentileHigh, student.hasGrowthData)}</td>
 
                   {/* End term (Winter) Achievement */}
                   <td className="numeric">{formatRITRange(student.winterRIT, student.teststandarderror)}</td>
-                  <td className="numeric">{formatPercentileRange(student.winterPercentile, null, null)}</td>
+                  <td className="numeric">{formatPercentileRange(student.winterPercentile, student.endTermPercentileLow, student.endTermPercentileHigh)}</td>
 
                   {/* Growth - Student (show — if null, not "0") */}
                   <td className="numeric">{student.projectedRIT ?? '—'}</td>
@@ -250,7 +258,7 @@ function DataTable({ data, showQuadrantColors, termname, growthPeriod }) {
                     : '—'}</td>
 
                   {/* Growth - Comparative */}
-                  <td>{formatMetGrowth(student.metProjectedGrowth)}</td>
+                  <td className={student.metProjectedGrowth?.toLowerCase().startsWith('yes') ? 'met-growth-yes' : student.metProjectedGrowth?.toLowerCase().startsWith('no') ? 'met-growth-no' : ''}>{formatMetGrowth(student.metProjectedGrowth)}</td>
                   <td className="numeric">{student.conditionalGrowthIndex?.toFixed(2) ?? '—'}</td>
                   <td className="numeric">{student.conditionalGrowthPercentile ?? '—'}</td>
                 </tr>

@@ -40,7 +40,6 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
 
   return (
     <div className="quadrant-chart">
-      <div className="chart-title">Achievement Status and Growth Quadrant Chart</div>
       <div className="chart-svg-container">
         <svg width={CHART_WIDTH} height={CHART_HEIGHT} viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}>
           {/* Quadrant backgrounds */}
@@ -125,6 +124,46 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             className="center-line"
           />
 
+          {/* Threshold "50" indicators on axes */}
+          {/* X-axis threshold */}
+          <rect
+            x={toPixelX(50) - 12}
+            y={CHART_HEIGHT - PADDING + 22}
+            width={24}
+            height={16}
+            fill="#fff"
+            stroke="#999"
+            strokeWidth={1}
+            rx={2}
+          />
+          <text
+            x={toPixelX(50)}
+            y={CHART_HEIGHT - PADDING + 34}
+            className="threshold-label"
+            textAnchor="middle"
+          >
+            50
+          </text>
+          {/* Y-axis threshold */}
+          <rect
+            x={PADDING - 34}
+            y={toPixelY(50) - 8}
+            width={24}
+            height={16}
+            fill="#fff"
+            stroke="#999"
+            strokeWidth={1}
+            rx={2}
+          />
+          <text
+            x={PADDING - 22}
+            y={toPixelY(50) + 4}
+            className="threshold-label"
+            textAnchor="middle"
+          >
+            50
+          </text>
+
           {/* Axes */}
           <line
             x1={PADDING}
@@ -204,48 +243,23 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             Conditional Growth Percentile
           </text>
 
-          {/* Quadrant labels */}
-          <text x={toPixelX(25)} y={toPixelY(75)} className="quadrant-label">
-            Low Achievement
-          </text>
-          <text x={toPixelX(25)} y={toPixelY(72)} className="quadrant-label">
-            High Growth
-          </text>
-
-          <text x={toPixelX(75)} y={toPixelY(75)} className="quadrant-label">
-            High Achievement
-          </text>
-          <text x={toPixelX(75)} y={toPixelY(72)} className="quadrant-label">
-            High Growth
-          </text>
-
-          <text x={toPixelX(25)} y={toPixelY(28)} className="quadrant-label">
-            Low Achievement
-          </text>
-          <text x={toPixelX(25)} y={toPixelY(25)} className="quadrant-label">
-            Low Growth
-          </text>
-
-          <text x={toPixelX(75)} y={toPixelY(28)} className="quadrant-label">
-            High Achievement
-          </text>
-          <text x={toPixelX(75)} y={toPixelY(25)} className="quadrant-label">
-            Low Growth
-          </text>
-
-          {/* Data points */}
+          {/* Data points — crosshair (+) markers like NWEA */}
           <g className="data-points">
             {points.map(point => (
-              <g key={point.id}>
-                <circle
-                  cx={point.x}
-                  cy={point.y}
-                  r={5}
-                  fill={point.color}
-                  className="student-point"
-                >
-                  <title>{`${point.fullName}\n${point.subject}\nAchievement: ${point.percentileX}%\nGrowth: ${point.percentileY}%`}</title>
-                </circle>
+              <g key={point.id} className="student-point">
+                <title>{`${point.fullName}\n${point.subject}\nAchievement: ${point.percentileX}%\nGrowth: ${point.percentileY}%`}</title>
+                <line
+                  x1={point.x - 5} y1={point.y}
+                  x2={point.x + 5} y2={point.y}
+                  stroke={point.color}
+                  strokeWidth={2}
+                />
+                <line
+                  x1={point.x} y1={point.y - 5}
+                  x2={point.x} y2={point.y + 5}
+                  stroke={point.color}
+                  strokeWidth={2}
+                />
                 {showNames && (
                   <text
                     x={point.x + point.labelOffsetX}

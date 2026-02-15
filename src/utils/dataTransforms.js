@@ -179,9 +179,10 @@ export function calculateDerivedValues(row, growthPeriod = 'falltowinter') {
  * @param {string} growthPeriod - Growth period
  * @param {Object} priorTermLookup - Optional map of studentid|subject -> prior term data
  * @param {string} startSeason - Start season name (e.g., "Fall", "Winter") for norms lookup
+ * @param {string} endSeason - End season name (e.g., "Winter") for end-term percentile range
  * @returns {Array} Processed data
  */
-export function processData(data, growthPeriod = 'falltowinter', priorTermLookup = null, startSeason = null) {
+export function processData(data, growthPeriod = 'falltowinter', priorTermLookup = null, startSeason = null, endSeason = null) {
   return data.map(row => {
     const processed = calculateDerivedValues(row, growthPeriod);
 
@@ -207,7 +208,8 @@ export function processData(data, growthPeriod = 'falltowinter', priorTermLookup
       const normsPercentile = lookupPercentile(row.subject, startSeason, startGrade, startRIT);
       if (normsPercentile != null) {
         processed.startTermPercentile = normsPercentile;
-        const se = processed.startTermSE || 0;
+        // Use prior term SE if available, fall back to current term SE
+        const se = processed.startTermSE || processed.teststandarderror || 0;
         if (se > 0) {
           processed.startTermPercentileLow = lookupPercentile(row.subject, startSeason, startGrade, startRIT - se);
           processed.startTermPercentileHigh = lookupPercentile(row.subject, startSeason, startGrade, startRIT + se);
@@ -223,8 +225,28 @@ export function processData(data, growthPeriod = 'falltowinter', priorTermLookup
       const key = `${row.studentid}|${row.subject}`;
       const priorData = priorTermLookup[key];
       if (priorData) {
-        processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
+        // For same-year periods, use norms lookup to derive all percentile values (low/mid/high)
+        // This ensures the range is internally consistent
+        if (startSeason && processed.fallRIT != null) {
+          const normsPercentile = lookupPercentile(row.subject, startSeason, row.grade, processed.fallRIT);
+          processed.startTermPercentile = normsPercentile ?? safeParseFloat(priorData.testpercentile);
+          // Use prior term SE if available, fall back to current term SE
+          const se = processed.startTermSE || processed.teststandarderror || 0;
+          if (se > 0) {
+            processed.startTermPercentileLow = lookupPercentile(row.subject, startSeason, row.grade, processed.fallRIT - se);
+            processed.startTermPercentileHigh = lookupPercentile(row.subject, startSeason, row.grade, processed.fallRIT + se);
+          }
+        } else {
+          processed.startTermPercentile = safeParseFloat(priorData.testpercentile);
+        }
       }
+    }
+
+    // End-term percentile range using norms lookup (±SE)
+    if (endSeason && processed.winterRIT != null && processed.teststandarderror > 0) {
+      const se = processed.teststandarderror;
+      processed.endTermPercentileLow = lookupPercentile(row.subject, endSeason, row.grade, processed.winterRIT - se);
+      processed.endTermPercentileHigh = lookupPercentile(row.subject, endSeason, row.grade, processed.winterRIT + se);
     }
 
     return processed;

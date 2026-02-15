@@ -4,7 +4,6 @@ import ReportHeader from './components/ReportHeader';
 import QuadrantChart from './components/QuadrantChart';
 import ChartFilters from './components/ChartFilters';
 import DataTable from './components/DataTable';
-import QuadrantLegend from './components/QuadrantLegend';
 import { getUniqueValues } from './utils/csvParser';
 import { filterData, processData, getChartEligibleStudents } from './utils/dataTransforms';
 import { getPriorTermName, getTermLabels } from './utils/termUtils';
@@ -288,8 +287,8 @@ function App() {
         }
       }
 
-      const { startSeason } = getTermLabels(selection.termname, growthPeriod);
-      const processed = processData(filteredData, growthPeriod, priorTermLookup, startSeason);
+      const termLabels = getTermLabels(selection.termname, growthPeriod);
+      const processed = processData(filteredData, growthPeriod, priorTermLookup, termLabels.startSeason, termLabels.endSeason);
       setReportData(processed);
 
       // Initialize report filters with all available values
@@ -370,8 +369,6 @@ function App() {
           onEditCriteria={handleEditCriteria}
           growthPeriod={selection.growthPeriod}
         />
-
-        <QuadrantLegend />
 
         <div className="report-content">
           <div className="quadrant-chart-container">

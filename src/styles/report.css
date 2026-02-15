@@ -171,30 +171,36 @@ body {
   align-items: center;
 }
 
-.edit-criteria-btn {
-  padding: 8px 16px;
+.header-action-btn {
+  padding: 6px 14px;
   background-color: transparent;
   border: 1px solid var(--header-text);
   color: var(--header-text);
   border-radius: 4px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
 }
 
-.edit-criteria-btn:hover {
-  background-color: rgba(255,255,255,0.1);
+.header-action-btn:hover {
+  background-color: rgba(255,255,255,0.15);
 }
 
-.report-criteria {
+.report-criteria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
   font-size: 13px;
 }
 
-.criteria-item {
+.criteria-col {
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.criteria-row {
+  display: flex;
+  gap: 8px;
 }
 
 .criteria-label {
@@ -272,6 +278,12 @@ body {
   fill: var(--text-secondary);
 }
 
+.threshold-label {
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-primary);
+}
+
 .student-point {
   stroke: #333;
   stroke-width: 1;
@@ -290,10 +302,9 @@ body {
 }
 
 .quadrant-label {
-  font-size: 11px;
-  font-weight: 600;
-  fill: var(--text-secondary);
-  text-anchor: middle;
+  font-size: 10px;
+  font-style: italic;
+  fill: #2e7d32;
 }
 
 /* Chart Filters Panel */
@@ -305,11 +316,7 @@ body {
 }
 
 .filter-panel-title {
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px;
-  border-bottom: 1px solid var(--border-color);
-  background: var(--bg-light);
+  display: none;
 }
 
 .filter-section {
@@ -324,9 +331,8 @@ body {
 .filter-section-title {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: 8px;
-  text-transform: uppercase;
 }
 
 .filter-checkbox {
@@ -495,13 +501,19 @@ body {
 
 /* Met growth indicators */
 .met-yes {
-  color: #2e7d32;
   font-weight: 600;
 }
 
 .met-no {
-  color: #c62828;
   font-weight: 600;
+}
+
+td.met-growth-yes {
+  background-color: #c8e6c9;
+}
+
+td.met-growth-no {
+  background-color: #ffcdd2;
 }
 
 /* Legend */
@@ -589,7 +601,7 @@ body {
 
 /* Print styles */
 @media print {
-  .edit-criteria-btn,
+  .header-action-btn,
   .file-upload,
   .generate-btn {
     display: none;
