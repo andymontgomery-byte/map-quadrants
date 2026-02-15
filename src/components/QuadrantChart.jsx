@@ -41,7 +41,7 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
   return (
     <div className="quadrant-chart">
       <div className="chart-svg-container">
-        <svg width={CHART_WIDTH} height={CHART_HEIGHT} viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}>
+        <svg viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`} className="chart-svg">
           {/* Quadrant backgrounds */}
           {showQuadrantColors && (
             <g className="quadrant-backgrounds">

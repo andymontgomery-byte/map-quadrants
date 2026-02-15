@@ -241,6 +241,11 @@ body {
   padding: 10px;
 }
 
+.chart-svg {
+  width: 100%;
+  height: auto;
+}
+
 /* Chart SVG Styles */
 .quadrant-bg {
   opacity: 0.7;
