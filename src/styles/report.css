@@ -14,10 +14,10 @@
   --quadrant-low-low: #fce8e7;     /* Low Achievement / Low Growth - Light Pink (bottom-left) */
   --quadrant-high-low: #fefde6;    /* High Achievement / Low Growth - Very Pale Yellow (bottom-right) */
 
-  --subject-math: #FFD700;
-  --subject-reading: #DC143C;
-  --subject-language: #4169E1;
-  --subject-science: #32CD32;
+  --subject-math: #2E8B57;
+  --subject-reading: #6A0DAD;
+  --subject-language: #999999;
+  --subject-science: #DC143C;
 
   --header-bg: #003366;
   --header-text: #ffffff;

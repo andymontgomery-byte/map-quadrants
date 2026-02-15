@@ -19,14 +19,29 @@ export const QUADRANT_LABELS = {
  * Subject colors for chart points
  */
 export const SUBJECT_COLORS = {
-  'Math': '#FFD700',           // Yellow
-  'Math K-12': '#FFD700',      // Yellow
+  'Math': '#2E8B57',           // Green (NWEA)
+  'Math K-12': '#2E8B57',      // Green (NWEA)
   'Language Arts': '#4169E1',  // Blue
   'Language': '#4169E1',       // Blue
-  'Language Usage': '#9370DB', // Purple
-  'Reading': '#DC143C',        // Red
-  'Science': '#32CD32',        // Green
-  'Science K-12': '#32CD32',   // Green
+  'Language Usage': '#999999', // Gray (NWEA)
+  'Reading': '#6A0DAD',        // Purple (NWEA)
+  'Science': '#DC143C',        // Red (NWEA)
+  'Science K-12': '#DC143C',   // Red (NWEA)
+};
+
+/**
+ * Subject marker shapes for chart (matching NWEA ASG report)
+ * 'cross' = +, 'square' = ■, 'circle' = ●, 'diamond' = ◆
+ */
+export const SUBJECT_SHAPES = {
+  'Math': 'cross',
+  'Math K-12': 'cross',
+  'Language Arts': 'square',
+  'Language': 'square',
+  'Language Usage': 'circle',
+  'Reading': 'square',
+  'Science': 'diamond',
+  'Science K-12': 'diamond',
 };
 
 /**
@@ -66,6 +81,16 @@ export function getQuadrantColor(student) {
 export function getSubjectColor(student) {
   const key = student.course || student.subject;
   return SUBJECT_COLORS[key] || '#888888';
+}
+
+/**
+ * Get subject marker shape
+ * @param {Object} student - Student data with subject or course
+ * @returns {string} Shape type: 'cross', 'square', 'circle', 'diamond'
+ */
+export function getSubjectShape(student) {
+  const key = student.course || student.subject;
+  return SUBJECT_SHAPES[key] || 'cross';
 }
 
 /**

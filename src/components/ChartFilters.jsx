@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { SUBJECT_COLORS } from '../utils/quadrantLogic';
+import { SUBJECT_COLORS, SUBJECT_SHAPES } from '../utils/quadrantLogic';
 
 function ChartFilters({ options, filters, onFiltersChange }) {
   const handleCheckboxToggle = useCallback((category, value) => {
@@ -45,21 +45,38 @@ function ChartFilters({ options, filters, onFiltersChange }) {
       <div className="filter-section">
         <div className="filter-section-title">Subjects and Courses shown</div>
 
-        {(options.subjects || []).map(subject => (
-          <div key={subject} className="filter-checkbox">
-            <input
-              type="checkbox"
-              id={`subject-${subject}`}
-              checked={filters.subjects?.includes(subject) || false}
-              onChange={() => handleCheckboxToggle('subjects', subject)}
-            />
-            <div
-              className="color-indicator"
-              style={{ backgroundColor: SUBJECT_COLORS[subject] || '#888' }}
-            />
-            <label htmlFor={`subject-${subject}`}>{subject}</label>
-          </div>
-        ))}
+        {(options.subjects || []).map(subject => {
+          const color = SUBJECT_COLORS[subject] || '#888';
+          const shape = SUBJECT_SHAPES[subject] || 'cross';
+          return (
+            <div key={subject} className="filter-checkbox">
+              <input
+                type="checkbox"
+                id={`subject-${subject}`}
+                checked={filters.subjects?.includes(subject) || false}
+                onChange={() => handleCheckboxToggle('subjects', subject)}
+              />
+              <label htmlFor={`subject-${subject}`}>{subject}</label>
+              <svg width="14" height="14" viewBox="0 0 14 14" className="shape-indicator">
+                {shape === 'cross' && (
+                  <>
+                    <line x1="2" y1="7" x2="12" y2="7" stroke={color} strokeWidth="2" />
+                    <line x1="7" y1="2" x2="7" y2="12" stroke={color} strokeWidth="2" />
+                  </>
+                )}
+                {shape === 'square' && (
+                  <rect x="3" y="3" width="8" height="8" fill={color} />
+                )}
+                {shape === 'circle' && (
+                  <circle cx="7" cy="7" r="4" fill={color} />
+                )}
+                {shape === 'diamond' && (
+                  <polygon points="7,2 12,7 7,12 2,7" fill={color} />
+                )}
+              </svg>
+            </div>
+          );
+        })}
       </div>
 
       {/* Gender Filter */}

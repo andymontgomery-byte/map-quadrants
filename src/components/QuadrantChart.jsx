@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { QUADRANT_COLORS, getQuadrant, getSubjectColor, resolveOverlaps } from '../utils/quadrantLogic';
+import { QUADRANT_COLORS, getQuadrant, getSubjectColor, getSubjectShape, resolveOverlaps } from '../utils/quadrantLogic';
 
 const CHART_WIDTH = 700;
 const CHART_HEIGHT = 500;
@@ -26,6 +26,7 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
       percentileY: student.conditionalGrowthPercentile,
       quadrant: getQuadrant(student.winterPercentile, student.conditionalGrowthPercentile),
       color: getSubjectColor(student),
+      shape: getSubjectShape(student),
     }));
 
     // Resolve overlapping labels
@@ -282,23 +283,26 @@ function QuadrantChart({ data, showNames, showQuadrantColors }) {
             Conditional Growth Percentile
           </text>
 
-          {/* Data points — crosshair (+) markers like NWEA */}
+          {/* Data points — shape markers matching NWEA ASG report */}
           <g className="data-points">
             {points.map(point => (
               <g key={point.id} className="student-point">
                 <title>{`${point.fullName}\n${point.subject}\nAchievement: ${point.percentileX}%\nGrowth: ${point.percentileY}%`}</title>
-                <line
-                  x1={point.x - 5} y1={point.y}
-                  x2={point.x + 5} y2={point.y}
-                  stroke={point.color}
-                  strokeWidth={2}
-                />
-                <line
-                  x1={point.x} y1={point.y - 5}
-                  x2={point.x} y2={point.y + 5}
-                  stroke={point.color}
-                  strokeWidth={2}
-                />
+                {point.shape === 'cross' && (
+                  <>
+                    <line x1={point.x - 5} y1={point.y} x2={point.x + 5} y2={point.y} stroke={point.color} strokeWidth={2} />
+                    <line x1={point.x} y1={point.y - 5} x2={point.x} y2={point.y + 5} stroke={point.color} strokeWidth={2} />
+                  </>
+                )}
+                {point.shape === 'square' && (
+                  <rect x={point.x - 4} y={point.y - 4} width={8} height={8} fill={point.color} stroke={point.color} strokeWidth={1} />
+                )}
+                {point.shape === 'circle' && (
+                  <circle cx={point.x} cy={point.y} r={4} fill={point.color} stroke={point.color} strokeWidth={1} />
+                )}
+                {point.shape === 'diamond' && (
+                  <polygon points={`${point.x},${point.y - 5} ${point.x + 5},${point.y} ${point.x},${point.y + 5} ${point.x - 5},${point.y}`} fill={point.color} stroke={point.color} strokeWidth={1} />
+                )}
                 {showNames && (
                   <text
                     x={point.x + point.labelOffsetX}
