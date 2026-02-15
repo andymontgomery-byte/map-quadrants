@@ -366,6 +366,15 @@ body {
   border: 1px solid #ccc;
 }
 
+/* Subject hierarchy indentation */
+.subject-child {
+  padding-left: 20px;
+}
+
+.shape-indicator {
+  flex-shrink: 0;
+}
+
 .filter-radio {
   display: flex;
   align-items: center;
