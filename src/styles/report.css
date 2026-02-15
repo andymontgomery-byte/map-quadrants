@@ -215,8 +215,9 @@ body {
 /* Main Content Layout */
 .report-content {
   display: flex;
-  gap: 20px;
   margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-white);
 }
 
 /* Quadrant Chart */
@@ -226,7 +227,6 @@ body {
 }
 
 .quadrant-chart {
-  border: 1px solid var(--border-color);
   background: var(--bg-white);
 }
 
@@ -316,7 +316,7 @@ body {
 .chart-filters {
   width: 280px;
   flex-shrink: 0;
-  border: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
   background: var(--bg-white);
 }
 
